@@ -4,7 +4,7 @@ function Sobre() {
   return (
     <div className="app">
       {/* Barra de topo */}
-      <div className="barra-topo">
+      <div className="barra-topo"> 
         <div className="logo">
           <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
         </div>

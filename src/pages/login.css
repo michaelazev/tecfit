@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+body{
+    color: white;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    button{
+        background: linear-gradient(90deg, #968FF8 0%, #F1D3F9 100%);
+    }
+}
+
+input, button{
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 400px;
+}
+
+input{
+    background-color: rgba(255 255 255 / .2);
+    color: rgba(255 255 255 / .9);
+}
+
+input::placeholder{
+    color: rgba(255 255 255 / .5);
+}
+
+button{
+    margin-top: 8px;
+    font-weight: 700;
+    color: rgba(0 0 0 / .8);
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover{
+    transform: translateY(-2px);
+}
+
+p{
+    margin-bottom: 32px;
+    width: 400px;
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 32px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url();
+    font-style: normal;
+    font-weight: 300;
+}
+.conteinerPai{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 80%;
+    height: 92vh;
+    background-color: rgba(255 255 255 / .10);
+    border-radius: 32px;
+    padding: 32px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.esquerda, .direita{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.formLogin, .facaLogin , .formCadastro, .facaCadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.facaLogin, .facaCadastro{
+    position: absolute;
+
+    h2, p{
+        color: rgba(0 0 0 / .8);
+    }
+
+    button{
+        background-color: rgba(255 255 255 / .2);
+        border: 2px solid rgba(0 0 0 / .8);
+    }
+}
+
+/*BACKGROUND MOVEL*/
+
+.card::after{
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url("/public/img/planofundo.webp");
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+/*LOGIN ACTIVE.*/
+
+.card.loginActive .facaLogin{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.loginActive .facaCadastro{
+    transform: translateX(0%);
+    transition: all 0.3s 0;
+    opacity: 1;
+}
+
+.card.loginActive .formLogin{
+    transition: all 0.3s 0;
+    opacity: 1;
+}
+
+.card.loginActive .formCadastro{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.loginActive::after{
+    transform: translateX(50%);
+}
+
+/*CADASTRO ACTIVE.*/
+
+.card.cadastroActive .facaCadastro{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.cadastroActive .formLogin{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.cadastroActive::after{
+    transform: translateX(-50%);
+}
+
+.card.cadastroActive .facaLogin{
+    transform: translateX(0%);
+    transition: all 0.3s 0;
+    opacity: 1;
+}
+
+.card.cadastroActive .formCadastro{
+    transition: all 0.3s 0;
+    opacity: 1;
+}
+
+/*ANIMACAO*/
+
+.card::after{
+    transition: all 0.5s;
+}
+
+.facaCadastro{
+    transform: translateX(200%);
+    transition: all 0.3s 0;
+}
+
+.formLogin{
+    opacity: 0;
+    transition: all 0.3s 0;
+}
+
+
+
+.facaLogin{
+    transform: translateX(-200%);
+    transition: all 0.3s 0;
+}
+
+.formCadastro{
+    opacity: 0;
+    transition: all 0.3s 0;
+}
