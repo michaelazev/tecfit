@@ -1,0 +1,346 @@
+body {
+    color: #f7f7f7;
+    background-color:#000000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 0;
+    height: 100vh;
+}
+
+html,
+body{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+header{
+    overflow: hidden;
+}
+
+:root {
+    --primary-color: #f7f7f7;
+    --secondary-color: #0b0404;
+    --text-dark: #7e818b;
+    --text-light: #b4acac;
+    --white: #ffffff;
+    --gradient-1: linear-gradient(to right, #333333, #555555, #777777);
+    --gradient-2: linear-gradient(to right, #222222, #444444, #666666);
+    
+    --max-width: 1200px;
+
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+.Tec, .menu {
+    position: fixed;
+}
+
+.Tec {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    width: 100px;
+    height: 100px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.menu nav { opacity: 0;}
+
+.menu {
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 50%;
+    max-width: 400px;
+    height: 100%;
+    background: rgb(0 0 0 / 40%);
+    backdrop-filter: blur(10px);
+    translate: -100% 0;
+    transition: translate 0.425s cubic-bezier(0.175,0.885,0.32,1);
+}
+
+@keyframes menu-in {
+    0% {
+        clip-path: ellipse(0% 0% at 0% 50%);
+    }
+    100% {
+        clip-path: ellipse(120% 120% at 0% 50%);
+    }
+}
+
+body.open .menu {
+    opacity: 1;
+    visibility: visible;
+    translate:  0;
+    animation: menu-in 0.425s;
+}
+
+body.open .menu nav {
+    opacity: 1;
+}
+
+.menu nav:hover a {
+    opacity: 0.25;
+}
+
+.menu nav a:hover {
+    opacity: 1;
+}
+
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.menu a {
+    position: relative;
+    color: #f9f9f9;
+    font-size: 30px;
+    padding: 18px 0;
+    height: 80px;
+    width: 100%;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+.menu a::before,
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 2px;
+    transition: 0.4s;
+}
+
+.menu a::before {
+    opacity: 0;
+    background: rgb(255 255 255 / 20%);
+}
+
+.menu a::after {
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    background: #f7f7f7;
+}
+
+.menu a:hover::before {
+    opacity: 1;
+}
+
+.menu a:hover::after {
+    transform: scaleX(1);
+}
+
+body.open .menu a {
+    animation: appear 0.25s backwards;
+}
+
+@keyframes appear {
+    0% { 
+        opacity: 0;
+        translate: -30px 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
+
+/* css (Tec icon) */
+
+.Tec-icon { position: relative; }
+
+.Tec-icon::before, .Tec-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 16px;
+}
+
+.Tec-icon, .Tec-icon::before, .Tec-icon::after {
+    display: block;
+    border-radius: 2px;
+    height: 2px;
+    background: #666666;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.Tec-icon::before { top: -8px; left: 0; }
+
+.Tec-icon::after { top: 8px; left: 16px; }
+
+body.open .Tec-icon {
+    transform: rotate(-45deg);
+}
+
+body.open .Tec-icon::before {
+    transform: rotate(90deg) translate(10px, -1px);
+}
+
+body.open .Tec-icon::after {
+    transform: rotate(90deg) translate(-9px, 1px);
+}
+
+.centralizada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.barra-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #CDCDCD;
+    position: relative;
+    border-radius: 15px;
+}
+
+.barra-topo .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -20px;
+}
+
+.barra-topo .botoes {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.barra-topo .botoes button {
+    background-color: #888; 
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.barra-topo .botoes button:hover {
+    background-color: #555; /* Ajuste a cor conforme necessário */
+}
+
+.barra-topo .botoes button,
+.header__btn .login {
+    background-color: transparent; /* Fundo transparente */
+    border: 2px solid #ffd900f5; /* Borda amarela */
+    padding: 10px 20px;
+    color: white;
+    border-radius: 25px; /* Borda arredondada */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.barra-topo .botoes button:hover,
+.header__btn .login:hover {
+    background-color: #ffd900a5; /* Fundo amarelo ao passar o mouse */
+    color: #000; /* Texto preto ao passar o mouse */
+}
+
+.header__container {
+    display: grid;
+    gap: 2rem;
+}
+.header__container h1 {
+    position: relative;
+    isolation: isolate;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 5rem;
+    color: var(--text-dark);
+    font-style: italic;
+    text-align: center;
+    margin-bottom: -2rem;
+}
+
+.header__container h1::before {
+    position: absolute;
+    content: " INSPIRAÇÃO MOTIVAÇÃO DETERMINAÇÃO";
+    top: -5rem;
+    left: -5rem;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 10rem;
+    color: rgba(194, 191, 191, 0.05);
+    z-index: -1;
+}
+
+.header__container h2 {
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 5rem;
+    color: var(--text-dark);
+    font-style: italic;
+    text-align: center;
+}
+
+.header__container p {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    text-align: center;
+}  
+.header__btn {
+    text-align: center;
+}
+
+.header__image img {
+    max-width: 700px;
+    margin-inline: auto;
+    margin-left: 100px;
+}
+
+@media (width > 768px) {
+    header {
+        position: relative;
+        isolation: isolate;
+    }
+    header::before {
+        position: absolute;
+        content: "";
+        left: 50%;
+        bottom: 0;
+        width: 65%;
+        aspect-ratio: 1;
+        background-image: var(--gradient-1);
+        border-radius: 100%;
+        z-index: -1;
+    }
+
+    .header__container {
+        padding-top: 0;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .header__container :is(h1, h2, p, .header__btn) {
+        text-align: left;
+    }
+}
