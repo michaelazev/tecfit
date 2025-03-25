@@ -23,26 +23,26 @@ function Login() {
     }, []);
 
     return (
-        <section class= "conteinerPai">
-            <div class="card loginActive">
-                <div class="esquerda">
-                    <div class="formLogin">
+        <section className="conteinerPai">
+            <div className="card loginActive" ref={cardRef}>
+                <div className="esquerda">
+                    <div className="formLogin">
                         <h2>Fazer Login</h2>
-                    <form>
-                        <input type="email" placeholder="E-mail" />
-                        <input type="password" placeholder="Senha" />
-                        <button type ="submit">Entrar</button>
-                    </form>
+                        <form>
+                            <input type="email" placeholder="E-mail" />
+                            <input type="password" placeholder="Senha" />
+                            <button type="submit">Entrar</button>
+                        </form>
                     </div>
-                    <div class="facaLogin">
+                    <div className="facaLogin">
                         <h2>Já tem <br />uma conta?</h2>
                         <p>Lorem Ipsum has been the industry´s standard dummy tex
                         ever since the 1500s</p>
-                        <button class="loginButton">Faça Login</button>
+                        <button className="loginButton" ref={loginButtonRef}>Faça Login</button>
                     </div>
                 </div>
-                <div class="direita">
-                    <div class="formCadastro">
+                <div className="direita">
+                    <div className="formCadastro">
                         <h2>Cadastro</h2>
                         <form>
                             <input type="text" placeholder="Nome" />
@@ -52,10 +52,10 @@ function Login() {
                             <button type="submit">Cadastrar</button>
                         </form>
                     </div>
-                    <div class="facaCadastro">
+                    <div className="facaCadastro">
                         <h2>Não tem <br />uma conta?</h2>
                         <p>Lorem Ipsum has been the industry´s standard dummy tex</p>
-                        <button class="cadastroButton">Cadastra-se</button>
+                        <button className="cadastroButton" ref={cadastroButtonRef}>Cadastra-se</button>
                     </div>
                 </div>
             </div>
