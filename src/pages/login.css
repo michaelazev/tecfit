@@ -112,7 +112,7 @@ h2{
     position: absolute;
 
     h2, p{
-        color: rgba(0 0 0 / .8);
+        color: rgba(0, 0, 0, 0.8);
     }
 
     button{
@@ -127,7 +127,7 @@ h2{
     width: 100%;
     height: 100%;
     content: "";
-    background-image: url("/public/img/planofundo.webp");
+    background-image: url("/public/img/nuvemfundo.jpg");
     position: absolute;
     top: 0;
     right: 0;

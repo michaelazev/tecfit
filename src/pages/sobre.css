@@ -1,0 +1,205 @@
+.A1{
+    width: 100%;
+    height: 600px;
+    background-color: grey;
+}
+
+
+.A1 > h1{
+    font-size: 400%;
+    padding-left: 16%;
+    padding-top: 10%;
+    color: black;
+}
+
+.A1 > img {
+    width: 30%;
+    height: 50%;
+    display:flex;
+    margin-top: -15%;
+    margin-left: 60%;
+}
+
+.A1 > p{
+    margin-left: 15%;
+    margin-right: 50%;
+    margin-top: -8%;
+}
+
+.A2{
+    width: 100%;
+    height: 800px;
+    background-color: grey;
+}
+
+.I1{
+    width: 40%;
+    height: 40%;
+    margin-left: 56%;
+}
+
+.B1{
+    margin-top: -25%;
+    margin-left: 15%;
+}
+
+.C1{
+    margin-left: 15%;
+    margin-right: 50%;
+}
+
+.B2{
+    margin-left: 65%;
+    margin-top: 17%;
+}
+
+.C2{
+    margin-left: 50%;
+    margin-right: 5%;
+}
+
+.I2{
+    width: 40%;
+    height: 37%;
+    margin-top: -23%;
+    margin-left: 5%;
+}
+
+.A3{
+    width: 100%;
+    height: 600px;
+    background-color:grey;
+    margin-top: -2%;
+    padding-top:2%;
+}
+
+
+.A4{
+    background-color:black;
+    width: 50%;
+    height: 1%;
+    margin-left: 4%;
+    border-radius: 10%;
+}
+
+.B3{
+    margin-left: 4%;
+}
+
+.B4{
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.C3{
+    margin-left:4%;
+    margin-right: 2%;
+    margin-right: 800px;
+}
+
+.B5{
+    margin-left:4%;
+    margin-top:3%;
+}
+
+.C4{
+    margin-top: 2%;
+    margin-left: 4%;
+}
+
+.B6{
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.C5{
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.B7{
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.C6{
+    margin-left: 4%;
+}
+
+.A5{
+    display:flex;
+    height:300px;
+    width: 100%;
+    background-color:black;
+}
+
+.I3{
+    padding-left: 3%;
+    margin-top: 7.5%;
+    width: 1.5%;
+    height:7%;
+}
+
+.C6{
+    display:flex;
+    padding-top: -80%;
+    
+}
+
+.I4{
+    margin-left: -8.4%;
+    margin-top: 10%;
+    width: 2%;
+    height: 7%;
+}
+
+.C7{
+    margin-top: 7.5%;
+    padding-left:1.3%;
+    color:white;
+}
+
+.C8{
+    margin-top: 10.2%;
+    margin-left: 1.3%;
+    color:white;
+}
+
+.I5{
+    width:2%;
+    height:7%;
+    margin-top: 10.3%;
+    margin-left: 1.3%;
+}
+
+.C9{
+    margin-top: 10.3%;
+    margin-left: 1.3%;
+    color:white;
+}
+
+.I6{
+    width: 2%;
+    height: 7%;
+    margin-left: -10%;
+    margin-top: 7.5%;
+}
+
+.C10{
+    margin-top: 7.8%;
+    margin-left: 1.3%;
+    color:white;
+}
+
+.I7{
+    width: 200px;
+    height: 200px;
+    margin-left: 40%;
+    margin-top: 2%;
+}
+
+.C11{
+    margin-left: -20%;
+    margin-top: 19%;
+    color: white;
+}
