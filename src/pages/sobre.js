@@ -123,71 +123,60 @@ function Sobre() {
         </div>
       </section>
 
-      <div class="semi">
-        <h1>Benefícios & vantagens</h1>
-        <hr />
-        <div>
-          <h2>Encontre a Academia Perfeita</h2>
-          <p>Comparamos diversas academias para te ajudar a encontrar aquela que combina com seu estilo de treino, localização e preferências.</p>
-        </div>
-        <div>
-          <h2>Filtros Inteligentes</h2>
-          <hr />
-          <p>Busque academias por localização, modalidades, estrutura, preço e muito mais.</p>
-        </div>
-        <div>
-          <h2>Sem Complicação</h2>
-          <hr />
-          <p>Entre em contato direto com a academia, agende uma visita ou faça sua inscrição de forma simples e rápida.</p>
-        </div>
-        <div>
-          <h2>Descubra Novas Experiências</h2>
-          <hr />
-          <p>Conheça academias que oferecem desde musculação até modalidades exclusivas como crossfit, yoga, pilates, lutas e muito mais.</p>
-        </div>
-      </div>
-      <div class="contato">
-        <div class="item">
-          <div className="grupo_1">
-            <div class="item">
-              <img src="/img/WhatsApp .png" alt="WhatsApp" />
-              <p>(81) 99801-0247</p>
-            </div>
-            <div class="item">
-              <img src="/img/privacy.png" alt="Política de Privacidade" />
-              <a href="https://www.freeprivacypolicy.com/live/f5e85019-3d91-47f3-9cd2-ea7e82cd618b">
-                <p>Política de Privacidade</p>
-              </a>
-
-            </div>
-            <div class="item">
-              <img src="/img/Email.png" alt="Email" />
-              <p>contato@TecFit.com.br</p>
-            </div>
-          </div>
-          <div className="grupo_2">
-            <div class="item">
-              <img src="/img/Instagram.png" alt="Instagram" />
-              <p>TecFit Academia Oficial</p>
-            </div>
-            <div class="item">
-              <img src="/img/Facebook.png" alt="Facebook" />
-              <p>TecFit Academia Oficial</p>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="logo">
-          <img src="/img/tec_fit-removebg-preview.png" alt="Hi Academia Logo" />
-          <p className="footer_text">© TecFit Academia 2025. Todos os direitos reservados.</p>
-        </div>
-      </div>
-      <div class="footer">
-
-      </div>
+    <div class="semi">
+    <h1>Benefícios & vantagens</h1>
+    <hr />
+    <div>
+        <h2>Encontre a Academia Perfeita</h2>
+        <p>Comparamos diversas academias para te ajudar a encontrar aquela que combina com seu estilo de treino, localização e preferências.</p>
     </div>
+    <div>
+        <h2>Filtros Inteligentes</h2>
+        <hr />
+        <p>Busque academias por localização, modalidades, estrutura, preço e muito mais.</p>
+    </div>
+    <div>
+        <h2>Sem Complicação</h2>
+        <hr />
+        <p>Entre em contato direto com a academia, agende uma visita ou faça sua inscrição de forma simples e rápida.</p>
+    </div>
+    <div>
+        <h2>Descubra Novas Experiências</h2>
+        <hr />
+        <p>Conheça academias que oferecem desde musculação até modalidades exclusivas como crossfit, yoga, pilates, lutas e muito mais.</p>
+    </div>
+</div>
+<div class="contato">
+    <div class="item">
+        <img src="/img/WhatsApp .png" alt="WhatsApp" />
+        <p>(81) 99801-0247</p>
+    </div>
+    <div class="item">
+        <img src="/img/Email.png" alt="Email" />
+        <p>contato@hiacademia.com.br</p>
+    </div>
+    <div class="item">
+        <img src="/img/Privacy.png" alt="Política de Privacidade" />
+        <p>Política de Privacidade</p>
+    </div>
+    <div class="item">
+        <img src="/img/Instagram.png" alt="Instagram" />
+        <p>Hi Academia Oficial</p>
+    </div>
+    <div class="item">
+        <img src="/img/Facebook.png" alt="Facebook" />
+        <p>Hi Academia Oficial</p>
+    </div>
+    <div class="logo">
+        <img src="/img/tec_fit-removebg-preview.png" alt="Hi Academia Logo" />
+        <p>Life Change</p>
+    </div>
+    </div>
+    <div class="footer">
+        <p>© Hi Academia 2023. Todos os direitos reservados. <span class="painel">Painel</span></p>
+        <p>HI. Desenvolvido pela Capta Comunicação.</p>
+    </div>
+  </div>
   );
 }
 

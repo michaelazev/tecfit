@@ -345,3 +345,85 @@ body.open .Tec-icon::after {
         text-align: left;
     }
 }
+
+.unit-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.unit-list .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #cbcbcb; /* Azul escuro */
+}
+
+.unit-list .units {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.unit-list .unit-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+}
+
+.unit-list .unit-header {
+    background-color: #d32f2f; /* Vermelho */
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.unit-list .unit-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.unit-list .unit-body {
+    padding: 15px;
+}
+
+.unit-list .unit-address {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.unit-list .unit-plans {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.unit-list .unit-plans .bold {
+    font-weight: bold;
+}
+
+.unit-list .unit-plans .prime {
+    color: #d32f2f; /* Vermelho */
+    font-weight: bold;
+}
+
+.unit-list .unit-button {
+    background-color: #d32f2f; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.unit-list .unit-button:hover {
+    background-color: #b71c1c; /* Vermelho mais escuro */
+}
