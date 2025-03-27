@@ -68,7 +68,7 @@ function App() {
             <h6>Serviços</h6>
           </a>
           <a href="/contato" style={{ animationDelay: "0.6s" }}>
-            <h6>Contato</h6>
+            <h6>Usuário</h6>
           </a>
         </nav>
       </div>

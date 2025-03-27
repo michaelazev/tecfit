@@ -44,12 +44,9 @@ function Sobre() {
   return (
     <div className="app">
       {/* Barra de topo */}
-      <div className="barra-topo">
+      <div className="barra-menu">
         <div className="logo">
           <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
-        </div>
-        <div className="botoes">
-          <a href="/login" className="login">Login</a>
         </div>
       </div>
 
@@ -74,68 +71,112 @@ function Sobre() {
       </div>
 
       {/* Conteúdo principal */}
-      <div className="A1">
-        <h1>Vamos crescer <br /> juntos</h1>
-        <img src="/img/tec_fit-removebg-preview.png" alt="Tec Fit" />
-        <p>
-          Na Tec Fit, acreditamos que o verdadeiro crescimento acontece quando evoluímos juntos. Nossa
-          missão vai além de oferecer tecnologia e inovação no mundo fitness; queremos construir uma
-          comunidade forte, onde cada cliente, parceiro e colaborador possa alcançar seu potencial máximo.
-        </p>
-      </div>
+      <section class="gym container">
+        <div class="gym-1">
+          <h2><span>Vamos crescer</span> juntos!</h2>
+          <p>Na Tec Fit, acreditamos que o verdadeiro crescimento acontece quando evoluímos juntos. Nossa
+                missão vai além de oferecer tecnologia e inovação no mundo fitness; queremos construir uma
+                comunidade forte, onde cada cliente, parceiro e colaborador possa alcançar seu potencial máximo.</p>
+        </div>
 
-      <div className="A2">
-        <img src="academia1.png" className="I1" alt="Academia 1" />
-        <h1 className="B1">Nossa missão</h1>
-        <p className="C1">
-          Na Tec Fit, acreditamos que a jornada para um estilo de vida saudável começa no lugar certo.
-          Nossa missão é conectar você à academia perfeita, onde seus objetivos se tornam realidade e
-          sua experiência de treino é transformadora. Sabemos que cada pessoa tem uma necessidade diferente—alguns
-          buscam performance, outros bem-estar, motivação ou simplesmente um ambiente acolhedor. É por isso que
-          trabalhamos para facilitar essa escolha, trazendo tecnologia, inovação e informações para que você encontre
-          a academia dos seus sonhos com facilidade.
-        </p>
-        <h1 className="B2">Nossa Historia</h1>
-        <p className="C2">
-          A Tec Fit nasceu da vontade de transformar a forma como as pessoas encontram e vivem a 
-          experiência em academias. Percebemos que, muitas vezes, escolher um local para treinar pode
-          ser um desafio—falta de informação, dificuldades para comparar opções e até mesmo a frustração
-          de não encontrar um ambiente que realmente combine com seu estilo de vida. Foi aí que tivemos 
-          uma ideia: e se pudéssemos usar a tecnologia para conectar as pessoas às academias ideais?
-          Com essa visão, começamos a desenvolver uma plataforma que simplifica essa busca, tornando o 
-          processo mais intuitivo, rápido e eficiente. Não queremos apenas ajudar você a encontrar uma academia;
-          queremos garantir que sua escolha seja baseada no que realmente importa: suas preferências, objetivos
-          e estilo de treino. Ao longo do tempo, crescemos, aprimoramos nossas soluções e fortalecemos nossa missão
-          de unir tecnologia, inovação e bem-estar. Hoje, a Tec Fit é mais do que uma plataforma—somos uma comunidade
-          que acredita no poder da conexão certa para transformar vidas.
-        </p>
-        <img src="Academia2.jpg" className="I2" alt="Academia 2" />
-      </div>
+        <div class="gym-2">
+          <img class="img-1" src="/img/academia4.jpg" alt="gym" />
+        </div>
+      </section>
 
-      <div className="A3">
-        <h1 className="B3">Beneficios & vantagens</h1>
-        <div className="A4"></div>
-        <h2 className="B4">Encontre a Academia Perfeita</h2>
-        <p className="C3">
-          Comparamos diversas academias para te ajudar a encontrar aquela que combina
-          com seu estilo de treino, localização e preferências.
-        </p>
-        <h2 className="B5">Filtros Inteligentes</h2>
-        <p className="C4">
-          Busque academias por localização, modalidades, estrutura, preço e muito mais.
-        </p>
-        <h2 className="B6">Sem Complicação</h2>
-        <p className="C5">
-          Entre em contato direto com a academia, agende uma visita ou faça sua inscrição
-          de forma simples e rápida.
-        </p>
-        <h2 className="B7">Descubra Novas Experiências</h2>
-        <p className="C6">
-          Conheça academias que oferecem desde musculação até modalidades exclusivas como crossfit,
-          yoga, pilates, lutas e muito mais.
-        </p>
-      </div>
+      <section class="gym container">
+        <div class="gym-2">
+          <img class="img-1" src="/img/academia.jpg" alt="gym" />
+        </div>
+
+        <div class="gym-1">
+          <h2><span>Nossa</span> missão </h2>
+          <p class="p2">Na Tec Fit, acreditamos que a jornada para um estilo de vida saudável começa no lugar certo.
+                Nossa missão é conectar você à academia perfeita, onde seus objetivos se tornam realidade e
+                sua experiência de treino é transformadora.
+                Sabemos que cada pessoa tem uma necessidade diferente—alguns buscam performance, outros
+                bem-estar, motivação ou simplesmente um ambiente acolhedor. É por isso que trabalhamos para
+                facilitar essa escolha, trazendo tecnologia, inovação e informações para que você encontre
+                a academia dos seus sonhos com facilidade.</p>
+        </div>
+      </section>
+    
+    <section class="gym container">
+    <div class="gym-1">
+          <h2><span>Nossa</span> Historia </h2>
+          <p>A Tec Fit nasceu da vontade de transformar a forma como as pessoas encontram e vivem a 
+            experiência em academias. Percebemos que, muitas vezes, escolher um local para treinar pode
+            ser um desafio—falta de informação, dificuldades para comparar opções e até mesmo a frustração
+            de não encontrar um ambiente que realmente combine com seu estilo de vida. Foi aí que tivemos 
+            uma ideia: e se pudéssemos usar a tecnologia para conectar as pessoas às academias ideais?
+            Com essa visão, começamos a desenvolver uma plataforma que simplifica essa busca, tornando o 
+            processo mais intuitivo, rápido e eficiente. Não queremos apenas ajudar você a encontrar uma academia;
+            queremos garantir que sua escolha seja baseada no que realmente importa: suas preferências, objetivos
+            e estilo de treino. Ao longo do tempo, crescemos, aprimoramos nossas soluções e fortalecemos nossa missão
+            de unir tecnologia, inovação e bem-estar. Hoje, a Tec Fit é mais do que uma plataforma—somos uma comunidade
+            que acredita no poder da conexão certa para transformar vidas.
+            </p>
     </div>
+
+    <div class="gym-2">
+      <img class="img-1" src="/img/tec_fit-removebg-preview.png" alt="gym" />
+    </div>
+    </section>
+
+    <div class="semi">
+    <h1>Benefícios & vantagens</h1>
+    <hr />
+    <div>
+        <h2>Encontre a Academia Perfeita</h2>
+        <p>Comparamos diversas academias para te ajudar a encontrar aquela que combina com seu estilo de treino, localização e preferências.</p>
+    </div>
+    <div>
+        <h2>Filtros Inteligentes</h2>
+        <hr />
+        <p>Busque academias por localização, modalidades, estrutura, preço e muito mais.</p>
+    </div>
+    <div>
+        <h2>Sem Complicação</h2>
+        <hr />
+        <p>Entre em contato direto com a academia, agende uma visita ou faça sua inscrição de forma simples e rápida.</p>
+    </div>
+    <div>
+        <h2>Descubra Novas Experiências</h2>
+        <hr />
+        <p>Conheça academias que oferecem desde musculação até modalidades exclusivas como crossfit, yoga, pilates, lutas e muito mais.</p>
+    </div>
+</div>
+<div class="contato">
+    <div class="item">
+        <img src="/img/WhatsApp .png" alt="WhatsApp" />
+        <p>(81) 99801-0247</p>
+    </div>
+    <div class="item">
+        <img src="/img/Email.png" alt="Email" />
+        <p>contato@hiacademia.com.br</p>
+    </div>
+    <div class="item">
+        <img src="/img/Privacy.png" alt="Política de Privacidade" />
+        <p>Política de Privacidade</p>
+    </div>
+    <div class="item">
+        <img src="/img/Instagram.png" alt="Instagram" />
+        <p>Hi Academia Oficial</p>
+    </div>
+    <div class="item">
+        <img src="/img/Facebook.png" alt="Facebook" />
+        <p>Hi Academia Oficial</p>
+    </div>
+    <div class="logo">
+        <img src="/img/tec_fit-removebg-preview.png" alt="Hi Academia Logo" />
+        <p>Life Change</p>
+    </div>
+    </div>
+    <div class="footer">
+        <p>© Hi Academia 2023. Todos os direitos reservados. <span class="painel">Painel</span></p>
+        <p>HI. Desenvolvido pela Capta Comunicação.</p>
+    </div>
+  </div>
   );
 }
 
