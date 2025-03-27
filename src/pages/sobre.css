@@ -131,7 +131,7 @@ body{
     font-size: 14px;
     color: white;
     margin-bottom: 10px; /* Espaçamento entre os itens */
-    flex-basis: 35%; /* Cada item ocupa cerca de 45% da largura */
+    flex-basis: 50%; /* Cada item ocupa cerca de 45% da largura */
 }
 
 .contato .item img {

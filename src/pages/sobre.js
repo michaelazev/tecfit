@@ -163,10 +163,7 @@ function Sobre() {
         <img src="/img/Instagram.png" alt="Instagram" />
         <p>Hi Academia Oficial</p>
     </div>
-    <div class="item">
-        <img src="/img/Facebook.png" alt="Facebook" />
-        <p>Hi Academia Oficial</p>
-    </div>
+
     <div class="logo">
         <img src="/img/tec_fit-removebg-preview.png" alt="Hi Academia Logo" />
         <p>Life Change</p>

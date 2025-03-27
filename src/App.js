@@ -49,13 +49,13 @@ function App() {
       image: "/img/smartfit.jpg" // Certifique-se de que a imagem está na pasta public/img
     },
     {
-      name: "ALPHAVILLE (SP)",
+      name: "SMART-FIT (SP)",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
       status: "Matricule-se",
       image: "/img/smartfit.jpg" // Adicione a imagem correta
     },
     {
-      name: "ALTO UMUARAMA (MG)",
+      name: "SMART-FIT (MG)",
       address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
       status: "Em Breve",
       image: "/img/smartfit.jpg" // Adicione a imagem correta
@@ -115,6 +115,17 @@ function App() {
         </div>
       </header>
 
+      <div className="map-section">
+  <div className="map-content">
+    <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
+    <h2>Encontre academia mais próxima de você.</h2>
+    <button className="map-button">Ver mais</button>
+  </div>
+  <div className="map-image">
+    <img src="/img/your-map.png" alt="Mapa das Unidades" />
+  </div>
+</div>
+  
       {/* Conteúdo Lista */}
       <div className="unit-list">
   <h2 className="title">Redes Proximas</h2>

@@ -418,12 +418,65 @@ body.open .Tec-icon::after {
     background-color: #d32f2f; /* Vermelho */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 10px 20px; 
+    border-radius: 10px; 
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem; 
+    width: 90%; 
+    max-width: 250px; 
+    margin: 0 auto; 
+    display: block; 
 }
 
 .unit-list .unit-button:hover {
     background-color: #b71c1c; /* Vermelho mais escuro */
+}
+
+.map-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #000000; /* Cor de fundo clara */
+}
+
+.map-content {
+  flex: 1;
+  text-align: center;
+}
+
+.map-logo {
+  width: 150px; /* Ajuste o tamanho do logo */
+  margin-bottom: 20px;
+}
+
+.map-content h2 {
+  font-size: 1.8rem;
+  color: #002f6c; /* Azul escuro */
+  margin-bottom: 20px;
+}
+
+.map-button {
+  background-color: #d32f2f; /* Vermelho */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.map-button:hover {
+  background-color: #b71c1c; /* Vermelho mais escuro */
+}
+
+.map-image {
+  flex: 1;
+  text-align: center;
+}
+
+.map-image img {
+  width: 100%;
+  max-width: 500px; /* Ajuste o tamanho máximo do mapa */
+  height: auto;
 }
