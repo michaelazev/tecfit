@@ -149,7 +149,7 @@ function Sobre() {
 <div class="contato">
     <div class="item">
         <img src="/img/WhatsApp .png" alt="WhatsApp" />
-        <p>(81) 99801-0247</p>
+        <p>(81) 9900-0999</p>
     </div>
     <div class="item">
         <img src="/img/Email.png" alt="Email" />

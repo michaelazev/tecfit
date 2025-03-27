@@ -41,6 +41,27 @@ function App() {
     });
   }, []);
 
+  const units = [
+    {
+      name: "SMART-FIT(RN)",
+      address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
+      status: "Em Breve",
+      image: "/img/smartfit.jpg" // Certifique-se de que a imagem está na pasta public/img
+    },
+    {
+      name: "ALPHAVILLE (SP)",
+      address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
+      status: "Matricule-se",
+      image: "/img/smartfit.jpg" // Adicione a imagem correta
+    },
+    {
+      name: "ALTO UMUARAMA (MG)",
+      address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
+      status: "Em Breve",
+      image: "/img/smartfit.jpg" // Adicione a imagem correta
+    },
+  ];
+
   return (
     <div className={`app ${menuOpen ? "open" : ""}`}>
       {/* Barra de topo */}
@@ -93,6 +114,26 @@ function App() {
           </div>
         </div>
       </header>
+
+      {/* Conteúdo Lista */}
+      <div className="unit-list">
+  <h2 className="title">Redes Proximas</h2>
+  <div className="units">
+    {units.map((unit, index) => (
+      <div key={index} className="unit-card">
+        <img src={unit.image} alt={unit.name} className="unit-image" />
+        <div className="unit-header">{unit.name}</div>
+        <div className="unit-body">
+          <p className="unit-address">📍{unit.address}</p>
+          <p className="unit-plans">
+            Plano <span className="bold">Anual</span> <span className="prime">Plano Prime</span>
+          </p>
+          <button className="unit-button">{unit.status}</button>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
     </div>
   );
 }
