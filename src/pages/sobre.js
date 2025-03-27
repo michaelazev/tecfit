@@ -162,17 +162,17 @@ function Sobre() {
             </div>
             <div class="item">
               <img src="/img/Email.png" alt="Email" />
-              <p>contato@hiacademia.com.br</p>
+              <p>contato@TecFit.com.br</p>
             </div>
           </div>
           <div className="grupo_2">
             <div class="item">
               <img src="/img/Instagram.png" alt="Instagram" />
-              <p>Hi Academia Oficial</p>
+              <p>TecFit Academia Oficial</p>
             </div>
             <div class="item">
               <img src="/img/Facebook.png" alt="Facebook" />
-              <p>Hi Academia Oficial</p>
+              <p>TecFit Academia Oficial</p>
             </div>
           </div>
         </div>
