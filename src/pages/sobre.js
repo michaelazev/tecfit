@@ -75,8 +75,8 @@ function Sobre() {
         <div class="gym-1">
           <h2><span>Vamos crescer</span> juntos!</h2>
           <p>Na Tec Fit, acreditamos que o verdadeiro crescimento acontece quando evoluímos juntos. Nossa
-                missão vai além de oferecer tecnologia e inovação no mundo fitness; queremos construir uma
-                comunidade forte, onde cada cliente, parceiro e colaborador possa alcançar seu potencial máximo.</p>
+            missão vai além de oferecer tecnologia e inovação no mundo fitness; queremos construir uma
+            comunidade forte, onde cada cliente, parceiro e colaborador possa alcançar seu potencial máximo.</p>
         </div>
 
         <div class="gym-2">
@@ -92,36 +92,36 @@ function Sobre() {
         <div class="gym-1">
           <h2><span>Nossa</span> missão </h2>
           <p class="p2">Na Tec Fit, acreditamos que a jornada para um estilo de vida saudável começa no lugar certo.
-                Nossa missão é conectar você à academia perfeita, onde seus objetivos se tornam realidade e
-                sua experiência de treino é transformadora.
-                Sabemos que cada pessoa tem uma necessidade diferente—alguns buscam performance, outros
-                bem-estar, motivação ou simplesmente um ambiente acolhedor. É por isso que trabalhamos para
-                facilitar essa escolha, trazendo tecnologia, inovação e informações para que você encontre
-                a academia dos seus sonhos com facilidade.</p>
+            Nossa missão é conectar você à academia perfeita, onde seus objetivos se tornam realidade e
+            sua experiência de treino é transformadora.
+            Sabemos que cada pessoa tem uma necessidade diferente—alguns buscam performance, outros
+            bem-estar, motivação ou simplesmente um ambiente acolhedor. É por isso que trabalhamos para
+            facilitar essa escolha, trazendo tecnologia, inovação e informações para que você encontre
+            a academia dos seus sonhos com facilidade.</p>
         </div>
       </section>
-    
-    <section class="gym container">
-    <div class="gym-1">
+
+      <section class="gym container">
+        <div class="gym-1">
           <h2><span>Nossa</span> Historia </h2>
-          <p>A Tec Fit nasceu da vontade de transformar a forma como as pessoas encontram e vivem a 
+          <p>A Tec Fit nasceu da vontade de transformar a forma como as pessoas encontram e vivem a
             experiência em academias. Percebemos que, muitas vezes, escolher um local para treinar pode
             ser um desafio—falta de informação, dificuldades para comparar opções e até mesmo a frustração
-            de não encontrar um ambiente que realmente combine com seu estilo de vida. Foi aí que tivemos 
+            de não encontrar um ambiente que realmente combine com seu estilo de vida. Foi aí que tivemos
             uma ideia: e se pudéssemos usar a tecnologia para conectar as pessoas às academias ideais?
-            Com essa visão, começamos a desenvolver uma plataforma que simplifica essa busca, tornando o 
+            Com essa visão, começamos a desenvolver uma plataforma que simplifica essa busca, tornando o
             processo mais intuitivo, rápido e eficiente. Não queremos apenas ajudar você a encontrar uma academia;
             queremos garantir que sua escolha seja baseada no que realmente importa: suas preferências, objetivos
             e estilo de treino. Ao longo do tempo, crescemos, aprimoramos nossas soluções e fortalecemos nossa missão
             de unir tecnologia, inovação e bem-estar. Hoje, a Tec Fit é mais do que uma plataforma—somos uma comunidade
             que acredita no poder da conexão certa para transformar vidas.
-            </p>
-    </div>
+          </p>
+        </div>
 
-    <div class="gym-2">
-      <img class="img-1" src="/img/tec_fit-removebg-preview.png" alt="gym" />
-    </div>
-    </section>
+        <div class="gym-2">
+          <img class="img-1" src="/img/tec_fit-removebg-preview.png" alt="gym" />
+        </div>
+      </section>
 
     <div class="semi">
     <h1>Benefícios & vantagens</h1>
@@ -149,7 +149,7 @@ function Sobre() {
 <div class="contato">
     <div class="item">
         <img src="/img/WhatsApp .png" alt="WhatsApp" />
-        <p>(81) 9900-0999</p>
+        <p>(81) 99801-0247</p>
     </div>
     <div class="item">
         <img src="/img/Email.png" alt="Email" />

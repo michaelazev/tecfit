@@ -13,6 +13,8 @@ body{
     background-color: black;
 }
 
+
+
 .container{
     max-width: 1200px;
     margin: auto;
@@ -113,8 +115,9 @@ body{
 .contato {
     display: flex;
     justify-content: space-between; /* Espaça os itens uniformemente */
-    align-items: center; /* Alinha os itens verticalmente */
-    height: 300px;
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha, se necessário */
+    height: auto;
     width: 100%;
     background-color: rgb(0, 0, 0);
     color: white;
@@ -123,10 +126,18 @@ body{
 }
 
 .contato .item {
-    text-align: center;
-    flex: 1; /* Garante que os itens ocupem o mesmo espaço */
+    display: flex;
+    align-items: center; /* Alinha ícone e texto verticalmente */
     font-size: 14px;
     color: white;
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+    flex-basis: 35%; /* Cada item ocupa cerca de 45% da largura */
+}
+
+.contato .item img {
+    width: 30px; /* Ajuste o tamanho dos ícones */
+    height: auto;
+    margin-right: 0px; /* Espaçamento entre o ícone e o texto */
 }
 
 .contato img {
@@ -136,21 +147,61 @@ body{
 }
 
 .contato .logo {
-    text-align: center;
-    flex: 1;
+    margin-left: auto; /* Pushes the logo to the right */
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    flex-basis: 30%; /* Makes the logo occupy 30% of the width */
+}
+
+.footer_text {
+    margin-top: -40px; /* Adds spacing between the logo and the text */
+    font-size: 14px; /* Adjust font size if needed */
+    color: white; /* Ensures the text color matches the design */
+    text-align: center; /* Centers the text below the logo */
+}
+
+.grupo_1 .item,
+.grupo_2 .item {
+    display: flex; /* Exibe os elementos lado a lado */
+    align-items: center; /* Alinha os ícones e o texto verticalmente */
+    gap: 10px; /* Adiciona espaçamento entre o ícone e o texto */
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+.grupo_1 .item img,
+.grupo_2 .item img {
+    width: 35px; /* Ajusta o tamanho dos ícones */
+    height: auto;
+}
+
+.grupo_1 .item p,
+.grupo_2 .item p {
+    margin: 0; /* Remove margens extras do texto */
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+    color: white; /* Define a cor do texto */
 }
 
 .contato .logo img {
-    width: 100px; /* Ajuste o tamanho da logo */
+    width: 300px; /* Ajuste o tamanho da logo */
     height: auto;
     margin-bottom: 5px;
 }
 
 .footer {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    align-items: center; /* Alinha verticalmente com a logo */
+    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    margin: 0; /* Remove margens extras */
     font-size: 12px;
     color: white;
+    flex: 1; /* Faz o footer ocupar o espaço restante */
+    text-align: right; /* Alinha o texto à direita */
+}
+
+.footer p {
+    margin: 0; /* Remove margens extras */
 }
 
 .footer .painel {
