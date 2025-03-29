@@ -248,7 +248,7 @@ body.open .Tec-icon::after {
 .barra-topo .botoes button,
 .header__btn .login {
     background-color: transparent; /* Fundo transparente */
-    border: 2px solid #ffd900f5; /* Borda amarela */
+    border: 2px solid #767272f4; /* Borda amarela */
     padding: 10px 20px;
     color: white;
     border-radius: 25px; /* Borda arredondada */
@@ -261,7 +261,7 @@ body.open .Tec-icon::after {
 
 .barra-topo .botoes button:hover,
 .header__btn .login:hover {
-    background-color: #ffd900a5; /* Fundo amarelo ao passar o mouse */
+    background-color: #969696a5; /* Fundo amarelo ao passar o mouse */
     color: #000; /* Texto preto ao passar o mouse */
 }
 
@@ -346,6 +346,23 @@ body.open .Tec-icon::after {
     }
 }
 
+.units {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas */
+    grid-gap: 20px; /* Espaçamento entre os cartões */
+    justify-content: center; /* Centraliza os cartões horizontalmente */
+    padding: 20px;
+}
+
+.unit-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+}
+
 .unit-list {
     padding: 20px;
     text-align: center;
@@ -376,7 +393,7 @@ body.open .Tec-icon::after {
 }
 
 .unit-list .unit-header {
-    background-color: #d32f2f; /* Vermelho */
+    background-color: #767373; /* Vermelho */
     color: white;
     border-radius: 5px;
     padding: 10px;
@@ -403,19 +420,25 @@ body.open .Tec-icon::after {
 .unit-list .unit-plans {
     font-size: 0.9rem;
     margin-bottom: 15px;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    display: flex; /* Usa flexbox para organizar os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 50px;
+    margin-left: -70px;
 }
 
 .unit-list .unit-plans .bold {
     font-weight: bold;
+    color: black;
 }
 
 .unit-list .unit-plans .prime {
-    color: #d32f2f; /* Vermelho */
+    color: black; 
     font-weight: bold;
 }
 
 .unit-list .unit-button {
-    background-color: #d32f2f; /* Vermelho */
+    background-color: #767373; /* Vermelho */
     color: white;
     border: none;
     padding: 10px 20px; 
@@ -429,41 +452,42 @@ body.open .Tec-icon::after {
 }
 
 .unit-list .unit-button:hover {
-    background-color: #b71c1c; /* Vermelho mais escuro */
+    background-color: black; /* Vermelho mais escuro */
 }
 
 .map-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 20px;
-  background-color: #000000; /* Cor de fundo clara */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #000000; /* Cor de fundo clara */
 }
 
 .map-content {
-  flex: 1;
-  text-align: center;
+    flex: 1;
+    text-align: center;
 }
 
 .map-logo {
-  width: 150px; /* Ajuste o tamanho do logo */
-  margin-bottom: 20px;
+    width: 300px; /* Ajuste o tamanho do logo */
+    margin-bottom: 20px;
 }
 
 .map-content h2 {
-  font-size: 1.8rem;
-  color: #002f6c; /* Azul escuro */
-  margin-bottom: 20px;
+    font-size: 2rem;
+    color: #d8d8da; /* Azul escuro */
+    margin-bottom: 20px;
 }
 
 .map-button {
-  background-color: #d32f2f; /* Vermelho */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
+    background-color: #6a6969; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    max-width: 300px; 
 }
 
 .map-button:hover {
@@ -471,12 +495,12 @@ body.open .Tec-icon::after {
 }
 
 .map-image {
-  flex: 1;
-  text-align: center;
+    flex: 1;
+    text-align: center;
 }
 
 .map-image img {
-  width: 100%;
-  max-width: 500px; /* Ajuste o tamanho máximo do mapa */
-  height: auto;
+    width: 100%;
+    max-width: 500px; /* Ajuste o tamanho máximo do mapa */
+    height: auto;
 }

@@ -46,19 +46,40 @@ function App() {
       name: "SMART-FIT(RN)",
       address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
       status: "Em Breve",
-      image: "/img/smartfit.jpg" // Certifique-se de que a imagem está na pasta public/img
+      image: "/img/acad1.jpg" // Certifique-se de que a imagem está na pasta public/img
     },
     {
       name: "SMART-FIT (SP)",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
       status: "Matricule-se",
-      image: "/img/smartfit.jpg" // Adicione a imagem correta
+      image: "/img/acad2.jpg" // Adicione a imagem correta
     },
     {
       name: "SMART-FIT (MG)",
       address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
       status: "Em Breve",
-      image: "/img/smartfit.jpg" // Adicione a imagem correta
+      image: "/img/acad3.jpg" // Adicione a imagem correta
+    },
+  ];
+
+  const units2 = [
+    {
+      name: "SELFIT (RN)",
+      address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
+      status: "Em Breve",
+      image: "/img/acad4.jpg" // Certifique-se de que a imagem está na pasta public/img
+    },
+    {
+      name: "SMART-FIT (SP)",
+      address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
+      status: "Matricule-se",
+      image: "/img/acad1.jpg" // Adicione a imagem correta
+    },
+    {
+      name: "SMART-FIT (MG)",
+      address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
+      status: "Em Breve",
+      image: "/img/acad2.jpg" // Adicione a imagem correta
     },
   ];
 
@@ -118,11 +139,11 @@ function App() {
       <div className="map-section">
   <div className="map-content">
     <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
-    <h2>Encontre academia mais próxima de você.</h2>
+    <h2>Encontre academia <br/> mais próxima de você.</h2>
     <button className="map-button">Ver mais</button>
   </div>
   <div className="map-image">
-    <img src="/img/your-map.png" alt="Mapa das Unidades" />
+    <img src="/img/mapa1.png" alt="Mapa das Unidades" />
   </div>
 </div>
   
@@ -137,7 +158,25 @@ function App() {
         <div className="unit-body">
           <p className="unit-address">📍{unit.address}</p>
           <p className="unit-plans">
-            Plano <span className="bold">Anual</span> <span className="prime">Plano Prime</span>
+            <span className="bold">Plano Anual</span> <span className="prime">Plano Plus</span>
+          </p>
+          <button className="unit-button">{unit.status}</button>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<div className="unit-list">
+  <div className="units">
+    {units2.map((unit, index) => (
+      <div key={index} className="unit-card">
+        <img src={unit.image} alt={unit.name} className="unit-image" />
+        <div className="unit-header">{unit.name}</div>
+        <div className="unit-body">
+          <p className="unit-address">📍{unit.address}</p>
+          <p className="unit-plans">
+            <span className="bold">Plano Anual</span> <span className="prime">Plano Prime</span>
           </p>
           <button className="unit-button">{unit.status}</button>
         </div>
