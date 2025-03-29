@@ -6,7 +6,7 @@ function User() {
             <div class="card1">
                 <div class="left-container">
                     <img className="imgProfile" src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__480.jpg" alt="Profile Image" />
-                    <h2 class="gradienttext">John Doe</h2>
+                    <h2 class="gradienttext2">John Doe</h2>
                     <p className="roleName">Web Developer</p>
                 </div>
                 <div class="right-container">

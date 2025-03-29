@@ -1,10 +1,12 @@
 import "./login.css";
 import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa o useNavigate
 
 function Login() {
     const cardRef = useRef(null);
     const loginButtonRef = useRef(null);
     const cadastroButtonRef = useRef(null);
+    const navigate = useNavigate(); // Inicializa o hook useNavigate
 
     useEffect(() => {
         const card = cardRef.current;
@@ -22,6 +24,12 @@ function Login() {
         }
     }, []);
 
+    const handleLogin = (e) => {
+        e.preventDefault(); // Evita o comportamento padrão do formulário
+        // Aqui você pode adicionar lógica de autenticação, se necessário
+        navigate('/user'); // Redireciona para a página do usuário
+    };
+
     return (
         <section className="conteinerPai">
             <div className="card loginActive" ref={cardRef}>
@@ -31,7 +39,7 @@ function Login() {
                         <form>
                             <input type="email" placeholder="E-mail" />
                             <input type="password" placeholder="Senha" />
-                            <button type="submit">Entrar</button>
+                            <button type="submit" onClick={handleLogin}>Entrar</button>
                         </form>
                     </div>
                     <div className="facaLogin">
