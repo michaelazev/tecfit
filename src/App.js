@@ -136,6 +136,10 @@ function App() {
         </div>
       </header>
 
+      <div class="banner">
+        <img src="/img/onemore.jpg" alt="banner" />
+    </div>
+
       <div className="map-section">
   <div className="map-content">
     <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />

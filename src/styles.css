@@ -248,7 +248,7 @@ body.open .Tec-icon::after {
 .barra-topo .botoes button,
 .header__btn .login {
     background-color: transparent; /* Fundo transparente */
-    border: 2px solid #767272f4; /* Borda amarela */
+    border: 2px solid #0096FF; /* Borda amarela */
     padding: 10px 20px;
     color: white;
     border-radius: 25px; /* Borda arredondada */
@@ -261,7 +261,7 @@ body.open .Tec-icon::after {
 
 .barra-topo .botoes button:hover,
 .header__btn .login:hover {
-    background-color: #969696a5; /* Fundo amarelo ao passar o mouse */
+    background-color: #0096FF; /* Fundo amarelo ao passar o mouse */
     color: #000; /* Texto preto ao passar o mouse */
 }
 
@@ -452,7 +452,7 @@ body.open .Tec-icon::after {
 }
 
 .unit-list .unit-button:hover {
-    background-color: black; /* Vermelho mais escuro */
+    background-color: #0096FF; /* Vermelho mais escuro */
 }
 
 .map-section {
@@ -491,7 +491,7 @@ body.open .Tec-icon::after {
 }
 
 .map-button:hover {
-  background-color: #b71c1c; /* Vermelho mais escuro */
+  background-color: #0096FF; /* Vermelho mais escuro */
 }
 
 .map-image {
@@ -503,4 +503,36 @@ body.open .Tec-icon::after {
     width: 100%;
     max-width: 500px; /* Ajuste o tamanho máximo do mapa */
     height: auto;
+}
+
+.banner {
+    width: 60%;
+    max-width: 1000px;
+    height: 200px;
+    background: linear-gradient(to right, #ff0000, #000080);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta {
+    background: white;
+    color: #000080;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.banner img {
+    height: 100%;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
 }
