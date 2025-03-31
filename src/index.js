@@ -4,6 +4,7 @@ import App from "./App";
 import "./styles.css";
 import LoginPage from './pages/login';
 import Sobrepage from './pages/sobre';
+import UserPage from './pages/user';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/sobre",
     element: <Sobrepage />,
+  },
+  {
+    path: "/user",
+    element: <UserPage />,
   }
 ]);
 
