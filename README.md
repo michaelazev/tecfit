@@ -85,7 +85,7 @@ cd tecfit
 
 Navegue até a pasta do back-end e execute terminal:
 
-    cd api
+    cd back-end
     npm install  
     npm start
 
@@ -94,7 +94,7 @@ Navegue até a pasta do back-end e execute terminal:
 
 Navegue até a pasta do front-end e execute terminal:
 
-    cd tecfit
+    cd front-end
     npm install
     npm start
 
