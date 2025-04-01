@@ -1,46 +1,45 @@
-# To-Do List API
+# Localização de Academias
+Este é um projeto Full Stack para localizar academias, desenvolvido com **React** no front-end e **Node.js** com **Express** no back-end. A aplicação permite que os usuários busquem academias por localização, visualizem detalhes e se inscrevam em aulas. O banco de dados utilizado é o **MySQL**.
 
-Esta é uma API RESTful para gerenciar tarefas (To-Do List), desenvolvida com **Spring Boot**. A API permite a criação, atualização, exclusão e listagem de tarefas. A aplicação está configurada para usar um banco de dados **H2** em memória e também possui integração com **Swagger** para documentação da API.
 
 ## Funcionalidades
-
-- **Listar todas as tarefas**
-- **Buscar uma tarefa por ID**
-- **Criar uma nova tarefa**
-- **Atualizar uma tarefa existente**
-- **Excluir uma tarefa**
+- **Listar todas as academias**
+- **Buscar uma academia por ID**
+- **Criar uma nova academia**
+- **Atualizar uma academia existente**
+- **Excluir uma academia**
 
 ## Tecnologias utilizadas
-
-- **Spring Boot**: Framework para desenvolvimento de aplicações Java.
-- **Spring Data JPA**: Para integração com banco de dados relacional.
-- **H2 Database**: Banco de dados em memória para fins de desenvolvimento e teste.
-- **Spring Security**: Para controle de autenticação e segurança.
-- **Swagger**: Para documentação da API.
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **Node.js**: Ambiente de execução para JavaScript no servidor.
+- **Express**: Framework para construção de APIs em Node.js.
+- **MySQL**: Banco de dados relacional para armazenamento de dados.
+- **Sequelize**: ORM para facilitar a interação com o MySQL.
+- **Axios**: Para realizar requisições HTTP no front-end.
 
 ## Endpoints disponíveis
-
-### 1. **GET /tasks**
-- **Descrição**: Retorna todas as tarefas.
+### 1. **GET /gyms**
+- **Descrição**: Retorna todas as academias.
 - **Resposta de Sucesso**: `200 OK`
 - **Exemplo de resposta**:
+
   ```json
   [
       {
           "id": 1,
-          "description": "Finalizar relatório mensal",
-          "status": "pendente"
+          "name": "Academia Fit",
+          "location": "Rua A, 123",
+          "classes": ["Yoga", "Pilates", "Musculação"]
       },
       {
           "id": 2,
-          "description": "Comprar leite",
-          "status": "concluída"
+          "name": "Academia Power",
+          "location": "Avenida B, 456",
+          "classes": ["Crossfit", "Zumba"]
       }
   ]
 
-
-
-
+## GET /gyms/:id
 
 {
     "id": 1,
@@ -49,10 +48,14 @@ Esta é uma API RESTful para gerenciar tarefas (To-Do List), desenvolvida com **
 }
 
 
+## POST /gyms
+
 {
     "description": "Nova tarefa",
     "status": "pendente"
 }
+
+## PUT /gyms/:id
 
 {
     "id": 1,
@@ -60,36 +63,30 @@ Esta é uma API RESTful para gerenciar tarefas (To-Do List), desenvolvida com **
     "status": "pendente"
 }
 
-{
-    "description": "Atualizar tarefa",
-    "status": "pendente"
-}
+## DELETE /gyms/:id
 
-{
-    "id": 1,
-    "description": "Atualizar tarefa",
-    "status": "pendente"
-}
-
+**Descrição: Exclui uma academia.
+**Resposta de Sucesso: ‘204 No Content’
 
 
 Como rodar o projeto localmente  ٩(ˊᗜˋ*)و ♡
 
 
 
-
     Clone o repositório:
 
-git clone https://github.com/seu-usuario/todo-list-api.git
-cd todo-list-api
+git clone https://github.com/michaelazev/tecfit.git
+cd tecfit
 
-Abra o projeto em sua IDE (ex: IntelliJ IDEA, Eclipse).
+Abra o projeto em sua IDE (ex: Visual Studio Code).
 
 Execute a aplicação:
 
-    No seu terminal, execute o comando:
+    Navegue até a pasta do back-end e execute terminal:
 
-./mvnw spring-boot:run
+cd api
+npm install
+npm start
 
 Ou, se estiver usando Gradle:
 
