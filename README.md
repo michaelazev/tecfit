@@ -65,34 +65,40 @@ Este é um projeto Full Stack para localizar academias, desenvolvido com **React
 
 ## DELETE /gyms/:id
 
-**Descrição: Exclui uma academia.
-**Resposta de Sucesso: ‘204 No Content’
+- **Descrição: Exclui uma academia.**
+- **Resposta de Sucesso: ‘204 No Content’**
 
 
-Como rodar o projeto localmente  ٩(ˊᗜˋ*)و ♡
+## Como rodar o projeto localmente  ٩(ˊᗜˋ*)و ♡
 
+**1. Faça o Git clone:**
 
+    https://github.com/michaelazev/tecfit.git
 
-    Clone o repositório:
+**Entre na pasta:**
 
-git clone https://github.com/michaelazev/tecfit.git
 cd tecfit
 
-Abra o projeto em sua IDE (ex: Visual Studio Code).
+**2. Abra o projeto em sua IDE (ex: Visual Studio Code).**
 
-Execute a aplicação:
+**3. Execute o back-end:**
 
-    Navegue até a pasta do back-end e execute terminal:
+Navegue até a pasta do back-end e execute terminal:
 
-cd api
-npm install
-npm start
+    cd api
+    npm install  
+    npm start
 
-Ou, se estiver usando Gradle:
 
-    ./gradlew bootRun
+**4. Execute o front-end:**
 
-Acesse a API:
+Navegue até a pasta do front-end e execute terminal:
+
+    cd tecfit
+    npm install
+    npm start
+
+**5. Acesse a aplicação:**
 
     O servidor estará rodando em http://localhost:8080.
     Você pode acessar a documentação da API via Swagger em http://localhost:8080/swagger-ui.html.
@@ -101,22 +107,19 @@ Acesse a API:
 
 Testes
 
-O projeto já inclui testes básicos com o Spring Boot Test.
+O projeto inclui testes básicos com Jest e Supertest.
 
-    Para rodar os testes, execute o comando:
+-**Para rodar os testes, execute o comando:**
 
-./mvnw test
+    cd api
+    npm test
+
 
 Ou, se estiver usando Gradle:
 
+    cd api
     ./gradlew test
 
-Licença
-
-Distribuído sob a licença MIT. Veja LICENSE para mais informações.
-
-
-Esse `README.md` explica o projeto, como rodar localmente, os endpoints disponíveis, as dependências e
 
 
 
