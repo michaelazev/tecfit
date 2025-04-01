@@ -505,22 +505,6 @@ body.open .Tec-icon::after {
     height: auto;
 }
 
-.banner {
-    width: 60%;
-    max-width: 1000px;
-    height: 200px;
-    background: linear-gradient(to right, #ff0000, #000080);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    color: white;
-    font-family: Arial, sans-serif;
-    position: relative;
-    overflow: hidden;
-}
-
 .cta {
     background: white;
     color: #000080;
@@ -529,10 +513,4 @@ body.open .Tec-icon::after {
     text-transform: uppercase;
     border-radius: 5px;
     cursor: pointer;
-}
-.banner img {
-    height: 100%;
-    position: absolute;
-    right: 10px;
-    bottom: 0;
 }

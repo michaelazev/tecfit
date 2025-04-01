@@ -140,11 +140,7 @@ function App() {
     </div>
     </div>
   </header>
-
-    <div class="banner">
-        <img src="/img/onemore.jpg" alt="banner" />
-    </div>
-
+  
       {/* Seção "Vamos crescer juntos!" */}
     <div className="map-section">
     <div className="map-content">
