@@ -123,9 +123,9 @@ function App() {
     <div className="section__container header__container" id="home">
       <div className="header__content">
         <h1>BEM VINDO <br /> A TEC FIT!</h1>
-        <h2>GET FIT TO HAPPY</h2>
+        <h2>PRIMEIRO MÊS GRATIS</h2>
         <p>
-        Unlock your full potential with our expert training and state-of-the-art facilities.
+        Cada repetição te aproxima da sua melhor versão. A dor passa, o progresso fica. Quando quiser parar, lembre-se: é agora que a evolução acontece. Faça UMA A MAIS e conquiste!
         </p>
 
       {/* Botão de login */}
@@ -140,7 +140,7 @@ function App() {
     </div>
     </div>
   </header>
-  
+
       {/* Seção "Vamos crescer juntos!" */}
     <div className="map-section">
     <div className="map-content">
