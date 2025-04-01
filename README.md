@@ -1,97 +1,148 @@
-# Localização de Academias
-Este é um projeto Full Stack para localizar academias, desenvolvido com **React** no front-end e **Node.js** com **Express** no back-end. A aplicação permite que os usuários busquem academias por localização, visualizem detalhes e se inscrevam em aulas. O banco de dados utilizado é o **MySQL**.
+# To-Do List API
+
+Esta é uma API RESTful para gerenciar tarefas (To-Do List), desenvolvida com **Spring Boot**. A API permite a criação, atualização, exclusão e listagem de tarefas. A aplicação está configurada para usar um banco de dados **H2** em memória e também possui integração com **Swagger** para documentação da API.
 
 ## Funcionalidades
-- **Listar todas as academias**
-- **Buscar uma academia por ID**
-- **Criar uma nova academia**
-- **Atualizar uma academia existente**
-- **Excluir uma academia**
+
+- **Listar todas as tarefas**
+- **Buscar uma tarefa por ID**
+- **Criar uma nova tarefa**
+- **Atualizar uma tarefa existente**
+- **Excluir uma tarefa**
 
 ## Tecnologias utilizadas
-- **React**: Biblioteca para construção de interfaces de usuário.
-- **Node.js**: Ambiente de execução para JavaScript no servidor.
-- **Express**: Framework para construção de APIs em Node.js.
-- **MySQL**: Banco de dados relacional para armazenamento de dados.
-- **Sequelize**: ORM para facilitar a interação com o MySQL.
-- **Axios**: Para realizar requisições HTTP no front-end.
+
+- **Spring Boot**: Framework para desenvolvimento de aplicações Java.
+- **Spring Data JPA**: Para integração com banco de dados relacional.
+- **H2 Database**: Banco de dados em memória para fins de desenvolvimento e teste.
+- **Spring Security**: Para controle de autenticação e segurança.
+- **Swagger**: Para documentação da API.
 
 ## Endpoints disponíveis
-### 1. **GET /gyms**
-- **Descrição**: Retorna todas as academias.
+
+### 1. **GET /tasks**
+- **Descrição**: Retorna todas as tarefas.
 - **Resposta de Sucesso**: `200 OK`
 - **Exemplo de resposta**:
-  
-[
+  ```json
+  [
       {
           "id": 1,
-          "name": "Academia Fit",
-          "location": "Rua A, 123",
-          "classes": ["Yoga", "Pilates", "Musculação"]
+          "description": "Finalizar relatório mensal",
+          "status": "pendente"
       },
-      
-
-{
+      {
           "id": 2,
-          "name": "Academia Power",
-          "location": "Avenida B, 456",
-          "classes": ["Crossfit", "Zumba"]
+          "description": "Comprar leite",
+          "status": "concluída"
       }
   ]
 
 
-GET /gyms/:id
+
+
+
 {
     "id": 1,
-    "name": "Academia Fit",
-    "location": "Rua A, 123",
-    "classes": ["Yoga", "Pilates", "Musculação"],
-    "contact": "1234-5678"
+    "description": "Finalizar relatório mensal",
+    "status": "pendente"
 }
 
 
-POST /gyms
 {
-    "name": "Nova Academia",
-    "location": "Rua C, 789",
-    "classes": ["Musculação", "Dança"]
+    "description": "Nova tarefa",
+    "status": "pendente"
 }
 
-PUT /gyms/:id
 {
-    "name": "Academia Atualizada",
-    "location": "Rua D, 101",
-    "classes": ["Musculação", "Dança", "Yoga"]
+    "id": 1,
+    "description": "Nova tarefa",
+    "status": "pendente"
 }
 
-DELETE /gyms/:id
-•	Descrição: Exclui uma academia.
-•	Resposta de Sucesso: ‘204 No Content’
+{
+    "description": "Atualizar tarefa",
+    "status": "pendente"
+}
 
-Como rodar o projeto localmente ٩(ˊᗜˋ*)و 
+{
+    "id": 1,
+    "description": "Atualizar tarefa",
+    "status": "pendente"
+}
 
-1.	Clone o repositório
-git clone https://github.com/seu-usuario/localizacao-academias.git
-cd localizacao-academias
 
-2.  Abra o projeto em sua IDE (ex: Visual Studio Code).
-3.	Execute o back-end:
-•	Navegue até a pasta do back-end e execute:
-cd backend
-npm install
-npm start
 
-4.	Execute o front-end:
-•	Navegue até a pasta do front-end e execute:
-cd frontend
-npm install
-npm start
+Como rodar o projeto localmente  ٩(ˊᗜˋ*)و ♡
 
-5.	Acesse a aplicação:
-•	O servidor estará rodando em http://localhost:3000.
+
+
+
+    Clone o repositório:
+
+git clone https://github.com/seu-usuario/todo-list-api.git
+cd todo-list-api
+
+Abra o projeto em sua IDE (ex: IntelliJ IDEA, Eclipse).
+
+Execute a aplicação:
+
+    No seu terminal, execute o comando:
+
+./mvnw spring-boot:run
+
+Ou, se estiver usando Gradle:
+
+    ./gradlew bootRun
+
+Acesse a API:
+
+    O servidor estará rodando em http://localhost:8080.
+    Você pode acessar a documentação da API via Swagger em http://localhost:8080/swagger-ui.html.
+
+
 
 Testes
-O projeto inclui testes básicos com Jest e Supertest.
-•	Para rodar os testes, execute o comando:
-•	cd backend
-•	npm test
+
+O projeto já inclui testes básicos com o Spring Boot Test.
+
+    Para rodar os testes, execute o comando:
+
+./mvnw test
+
+Ou, se estiver usando Gradle:
+
+    ./gradlew test
+
+Licença
+
+Distribuído sob a licença MIT. Veja LICENSE para mais informações.
+
+
+Esse `README.md` explica o projeto, como rodar localmente, os endpoints disponíveis, as dependências e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
