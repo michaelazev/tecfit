@@ -5,20 +5,21 @@ import ScrollReveal from "scrollreveal";
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Função para abrir/fechar menu
+  // Função para abrir/fechar menu lateral
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     document.body.classList.toggle("open");
   };
 
-  // Configuração do ScrollReveal
+  // Configuração do ScrollReveal para animações na página
   useEffect(() => {
     const scrollRevealOption = {
       origin: "bottom",
       distance: "50px",
       duration: 1000,
     };
-
+    
+  // Aplica animações aos elementos do cabeçalho
     ScrollReveal().reveal(".header__image img", {
       ...scrollRevealOption,
       origin: "right",
@@ -41,24 +42,25 @@ function App() {
     });
   }, []);
 
+  // Listas de unidades de academias com informações
   const units = [
     {
       name: "SMART-FIT(RN)",
       address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
       status: "Em Breve",
-      image: "/img/acad1.jpg" // Certifique-se de que a imagem está na pasta public/img
+      image: "/img/acad1.jpg" 
     },
     {
       name: "SMART-FIT (SP)",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
       status: "Matricule-se",
-      image: "/img/acad2.jpg" // Adicione a imagem correta
+      image: "/img/acad2.jpg" 
     },
     {
       name: "SMART-FIT (MG)",
       address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
       status: "Em Breve",
-      image: "/img/acad3.jpg" // Adicione a imagem correta
+      image: "/img/acad3.jpg" 
     },
   ];
 
@@ -67,114 +69,118 @@ function App() {
       name: "SELFIT (RN)",
       address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
       status: "Em Breve",
-      image: "/img/acad4.jpg" // Certifique-se de que a imagem está na pasta public/img
+      image: "/img/acad4.jpg" 
     },
     {
       name: "SMART-FIT (SP)",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
       status: "Matricule-se",
-      image: "/img/acad1.jpg" // Adicione a imagem correta
+      image: "/img/acad1.jpg" 
     },
     {
       name: "SMART-FIT (MG)",
       address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
       status: "Em Breve",
-      image: "/img/acad2.jpg" // Adicione a imagem correta
+      image: "/img/acad2.jpg" 
     },
   ];
 
   return (
-    <div className={`app ${menuOpen ? "open" : ""}`}>
-      {/* Barra de topo */}
-      <div className="barra-topo">
-        <div className="logo">
-          <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
-        </div>
-        <div className="botoes">
-        <a href="/login"><button class="login">Login</button></a>
-        </div>
-      </div>
+    <div className={`app ${menuOpen ? "open" : ""}`}> {/* Classe condicional para menu aberto */}
 
-      {/* Botão de menu */}
-      <button className="Tec" onClick={toggleMenu}>
-        <span className="Tec-icon"></span>
-      </button>
+      {/* Barra de topo com logo e botão de login */}
+  <div className="barra-topo">
+    <div className="logo">
+      <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
+    </div>
+    <div className="botoes">
+      <a href="/login"><button class="login">Login</button></a>
+    </div>
+  </div>
 
-      {/* Menu lateral */}
-      <div className={`menu ${menuOpen ? "active" : ""}`}>
-        <nav>
-          <a href="/sobre" style={{ animationDelay: "0.2s" }}>
-            <h6>Sobre</h6>
-          </a>
-          <a href="/servico" style={{ animationDelay: "0.4s" }}>
-            <h6>Serviços</h6>
-          </a>
-          <a href="/contato" style={{ animationDelay: "0.6s" }}>
-            <h6>Usuário</h6>
-          </a>
-        </nav>
-      </div>
+      {/* Botão para abrir/fechar menu lateral */}
+  <button className="Tec" onClick={toggleMenu}>
+    <span className="Tec-icon"></span>
+  </button>
 
-      {/* Cabeçalho */}
-      <header>
-        <div className="section__container header__container" id="home">
-          <div className="header__content">
-            <h1>BEM VINDO <br /> A TEC FIT!</h1>
-            <h2>GET FIT TO HAPPY</h2>
-            <p>
-              Unlock your full potential with our expert training and state-of-the-art facilities.
-            </p>
-            <div className="header__btn">
-              <a href="/sobre">
-                <button className="btn login">Sobre nós</button>
-              </a>
-            </div>
-          </div>
-          <div className="header__image">
-            <img src="/img/mulher_malh-removebg-preview.png" alt="header" />
-          </div>
-        </div>
-      </header>
+      {/* Menu lateral com links */}
+  <div className={`menu ${menuOpen ? "active" : ""}`}>
+    <nav>
+      <a href="/sobre" style={{ animationDelay: "0.2s" }}>
+        <h6>Sobre</h6>
+      </a>
+      <a href="/servico" style={{ animationDelay: "0.4s" }}>
+        <h6>Serviços</h6>
+      </a>
+      <a href="/contato" style={{ animationDelay: "0.6s" }}>
+          <h6>Usuário</h6>
+      </a>
+    </nav>
+  </div>
 
-      <div class="banner">
+      {/* Cabeçalho com título e imagem */}
+  <header>
+    <div className="section__container header__container" id="home">
+      <div className="header__content">
+        <h1>BEM VINDO <br /> A TEC FIT!</h1>
+        <h2>GET FIT TO HAPPY</h2>
+        <p>
+        Unlock your full potential with our expert training and state-of-the-art facilities.
+        </p>
+
+      {/* Botão de login */}
+    <div className="header__btn">
+        <a href="/sobre">
+          <button className="btn login">Sobre nós</button>
+        </a>
+    </div>
+    </div>
+    <div className="header__image">
+        <img src="/img/mulher_malh-removebg-preview.png" alt="header" />
+    </div>
+    </div>
+  </header>
+
+    <div class="banner">
         <img src="/img/onemore.jpg" alt="banner" />
     </div>
 
-      <div className="map-section">
-  <div className="map-content">
-    <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
-    <h2>Encontre academia <br/> mais próxima de você.</h2>
+      {/* Seção "Vamos crescer juntos!" */}
+    <div className="map-section">
+    <div className="map-content">
+      <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
+      <h2>Encontre academia <br/> mais próxima de você.</h2>
     <button className="map-button">Ver mais</button>
-  </div>
-  <div className="map-image">
-    <img src="/img/mapa1.png" alt="Mapa das Unidades" />
-  </div>
-</div>
+    </div>
+    <div className="map-image">
+      <img src="/img/mapa1.png" alt="Mapa das Unidades" />
+    </div>
+    </div>
   
-      {/* Conteúdo Lista */}
-      <div className="unit-list">
-  <h2 className="title">Redes Proximas</h2>
-  <div className="units">
-    {units.map((unit, index) => (
-      <div key={index} className="unit-card">
-        <img src={unit.image} alt={unit.name} className="unit-image" />
-        <div className="unit-header">{unit.name}</div>
-        <div className="unit-body">
-          <p className="unit-address">📍{unit.address}</p>
-          <p className="unit-plans">
-            <span className="bold">Plano Anual</span> <span className="prime">Plano Plus</span>
-          </p>
-          <button className="unit-button">{unit.status}</button>
-        </div>
-      </div>
-    ))}
+      {/* Lista de academias disponíveis */}
+    <div className="unit-list">
+      <h2 className="title">Redes Proximas</h2>
+    <div className="units">
+      {units.map((unit, index) => (
+    <div key={index} className="unit-card">
+      <img src={unit.image} alt={unit.name} className="unit-image" />
+    <div className="unit-header">{unit.name}</div>
+    <div className="unit-body">
+        <p className="unit-address">📍{unit.address}</p>
+        <p className="unit-plans">
+      <span className="bold">Plano Anual</span> <span className="prime">Plano Plus</span>
+        </p>
+    <button className="unit-button">{unit.status}</button>
+    </div>
+  </div>
+  ))}
   </div>
 </div>
-
-<div className="unit-list">
-  <div className="units">
-    {units2.map((unit, index) => (
-      <div key={index} className="unit-card">
+      {/* Lista de academias disponíveis 2 */}
+  <div className="unit-list">
+    <div className="units">
+      {units2.map((unit, index) => (
+    <div key={index} className="unit-card">
         <img src={unit.image} alt={unit.name} className="unit-image" />
         <div className="unit-header">{unit.name}</div>
         <div className="unit-body">
@@ -183,12 +189,12 @@ function App() {
             <span className="bold">Plano Anual</span> <span className="prime">Plano Prime</span>
           </p>
           <button className="unit-button">{unit.status}</button>
-        </div>
+          </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
     </div>
+  </div>
   );
 }
 
