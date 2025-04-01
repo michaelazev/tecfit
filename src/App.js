@@ -45,19 +45,19 @@ function App() {
   // Listas de unidades de academias com informações
   const units = [
     {
-      name: "SMART-FIT(RN)",
-      address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
+      name: "HI ACADEMIA",
+      address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000",
       status: "Em Breve",
       image: "/img/acad1.jpg" 
     },
     {
-      name: "SMART-FIT (SP)",
-      address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
+      name: "SMART-FIT",
+      address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Recife - PE",
       status: "Matricule-se",
       image: "/img/acad2.jpg" 
     },
     {
-      name: "SMART-FIT (MG)",
+      name: "SELFIT",
       address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
       status: "Em Breve",
       image: "/img/acad3.jpg" 
@@ -66,19 +66,19 @@ function App() {
 
   const units2 = [
     {
-      name: "SELFIT (RN)",
+      name: "SKYFIT",
       address: "Avenida Coronel Estevam - 415 - Alecrim - CEP 59035-000 - Natal - RN",
       status: "Em Breve",
       image: "/img/acad4.jpg" 
     },
     {
-      name: "SMART-FIT (SP)",
+      name: "SMART-FIT",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
       status: "Matricule-se",
       image: "/img/acad1.jpg" 
     },
     {
-      name: "SMART-FIT (MG)",
+      name: "MARTFIT",
       address: "Rua Sacadura Cabral, 1079 - Aclimação - CEP 38406-396 - Uberlândia - MG",
       status: "Em Breve",
       image: "/img/acad2.jpg" 
