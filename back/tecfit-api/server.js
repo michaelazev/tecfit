@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 
 // Configuração do CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Permite requisições apenas do frontend
+  origin: 'buwucrtiuuqvi3rpduen-mysql.services.clever-cloud.com', // Permite requisições apenas do frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
 }));
