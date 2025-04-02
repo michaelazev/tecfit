@@ -35,7 +35,7 @@ function Login() {
         };
 
         // Faz uma requisição POST para o endpoint de registro do back-end
-        fetch("http://localhost:8080/auth/register", {
+        fetch("tecfit-back.vercel.app/auth/register", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ function Login() {
             password: senha
         };
 
-        fetch("http://localhost:8080/auth/login", {
+        fetch("tecfit-back.vercel.app/auth/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
