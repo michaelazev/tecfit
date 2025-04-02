@@ -1,21 +1,22 @@
-// controllers/dataController.js
-const sql = require('mssql');
+const express = require('express');
+const sql = require('mysql2');
 
-exports.getAllData = async (req, res) => {
+const router = express.Router();
+
+// Rota para obter todos os itens
+router.get('/', async (req, res) => {
   try {
     const pool = await sql.connect();
-    const result = await pool.request()
-      .query('SELECT * FROM DataItems');
+    const result = await pool.request().query('SELECT * FROM DataItems');
     res.json(result.recordset);
   } catch (err) {
     console.error('Erro ao buscar dados:', err);
     res.status(500).json({ message: 'Erro ao buscar dados.' });
-  } finally {
-    sql.close();
   }
-};
+});
 
-exports.getDataById = async (req, res) => {
+// Rota para obter um item por ID
+router.get('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
     const pool = await sql.connect();
@@ -31,12 +32,11 @@ exports.getDataById = async (req, res) => {
   } catch (err) {
     console.error('Erro ao buscar item:', err);
     res.status(500).json({ message: 'Erro ao buscar item.' });
-  } finally {
-    sql.close();
   }
-};
+});
 
-exports.createData = async (req, res) => {
+// Rota para criar um novo item
+router.post('/', async (req, res) => {
   const { name, description } = req.body;
   try {
     const pool = await sql.connect();
@@ -44,16 +44,16 @@ exports.createData = async (req, res) => {
       .input('Name', sql.VarChar, name)
       .input('Description', sql.VarChar, description)
       .query('INSERT INTO DataItems (Name, Description) VALUES (@Name, @Description); SELECT SCOPE_IDENTITY() AS ItemID;');
+
     res.status(201).json({ message: 'Item criado com sucesso!', itemId: result.recordset[0].ItemID });
   } catch (err) {
     console.error('Erro ao criar item:', err);
     res.status(500).json({ message: 'Erro ao criar item.' });
-  } finally {
-    sql.close();
   }
-};
+});
 
-exports.updateData = async (req, res) => {
+// Rota para atualizar um item
+router.put('/:id', async (req, res) => {
   const itemId = req.params.id;
   const { name, description } = req.body;
   try {
@@ -72,12 +72,11 @@ exports.updateData = async (req, res) => {
   } catch (err) {
     console.error('Erro ao atualizar item:', err);
     res.status(500).json({ message: 'Erro ao atualizar item.' });
-  } finally {
-    sql.close();
   }
-};
+});
 
-exports.deleteData = async (req, res) => {
+// Rota para deletar um item
+router.delete('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
     const pool = await sql.connect();
@@ -93,7 +92,7 @@ exports.deleteData = async (req, res) => {
   } catch (err) {
     console.error('Erro ao deletar item:', err);
     res.status(500).json({ message: 'Erro ao deletar item.' });
-  } finally {
-    sql.close();
   }
-};
+});
+
+module.exports = router;

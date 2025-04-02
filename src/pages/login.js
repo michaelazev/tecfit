@@ -16,32 +16,51 @@ function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
+    const [confirmarSenha, setConfirmarSenha] = useState(""); // Estado para a confirmação da senha
+    const [cadastroErrorMessage, setCadastroErrorMessage] = useState(""); // Estado para mensagem de erro no cadastro
+
     // Função para lidar com o envio do formulário de cadastro
     const handleSubmit = (event) => {
         event.preventDefault(); // Evita o comportamento padrão do formulário
-        const usuario = {
-            nome: nome,
-            email: email,
-            senha: senha
-    };
 
-        // Faz uma requisição POST para a API
-    fetch("http://localhost:8080/usuario", {
-        mode: 'no-cors', // Desabilita o CORS (não recomendado para produção)
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-            body: JSON.stringify(usuario), // Converte o objeto para JSON
+        if (senha !== confirmarSenha) {
+            setCadastroErrorMessage("As senhas não coincidem!");
+            return;
+        }
+
+        const usuario = {
+            username: nome,
+            email: email,
+            password: senha
+        };
+
+        // Faz uma requisição POST para o endpoint de registro do back-end
+        fetch("http://localhost:8080/auth/register", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(usuario) // Converte o objeto para JSON
         })
-            .then((response) => response.json()) // Converte a resposta para JSON
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Erro ao registrar usuário');
+                }
+                return response.json();
+            })
             .then((data) => {
                 // Limpa os campos do formulário após o cadastro
                 setNome('');
                 setEmail('');
                 setSenha('');
+                setConfirmarSenha('');
+                setCadastroErrorMessage(""); // Limpa a mensagem de erro
                 console.log('Cadastro realizado com sucesso:', data);
-        });
+            })
+            .catch((error) => {
+                console.error('Erro ao registrar usuário:', error);
+            });
     };
 
     // Função para exibir os dados do usuário no console
@@ -51,7 +70,6 @@ function Login() {
             email: email,
             senha: senha,
         };
-        console.log(usuario);
     };
 
     // Hook useEffect para manipular classes de elementos DOM
@@ -74,66 +92,138 @@ function Login() {
 
     // Estado para exibir uma mensagem de sucesso
     const [isOpen, setIsOpen] = useState(false);
-
+    const [errorMessage, setErrorMessage] = useState(""); // Estado para armazenar a mensagem de erro
     // Função para lidar com o login
     const handleLogin = (e) => {
         e.preventDefault(); // Evita o comportamento padrão do formulário
-        navigate('/user'); // Redireciona para a página do usuário
+        const usuario = {
+            email: email,
+            password: senha
+        };
+
+        fetch("http://localhost:8080/auth/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(usuario)
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    // Log detalhado da resposta para depuração
+                    console.error('Erro na resposta do servidor:', response.status, response.statusText);
+                    return response.json().then((errorData) => {
+                        console.error('Detalhes do erro:', errorData);
+                        setErrorMessage("Credenciais inválidas!");
+                        throw new Error('Erro ao fazer login');
+                    });
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Login realizado com sucesso:', data);
+                setErrorMessage("");
+                // Redireciona para a página do usuário
+                navigate('/user');
+            })
+            .catch((error) => {
+                console.error('Erro ao fazer login:', error);
+            });
     };
 
-return (
-    <section className="conteinerPai">
-        {/* Card que alterna entre login e cadastro */}
-        <div className="card loginActive" ref={cardRef}>
+    return (
+        <section className="conteinerPai">
+            {/* Card que alterna entre login e cadastro */}
+            <div className="card loginActive" ref={cardRef}>
 
-            {/* Seção da esquerda (Login) */}
-        <div className="esquerda">
-            <div className="formLogin">
-                <h2>Fazer Login</h2>
-                <form>
-                    <input type="email" placeholder="E-mail" />
-                    <input type="password" placeholder="Senha" />
-                    <button type="submit" onClick={handleLogin}>Entrar</button>
-                </form>
-            </div>
-            <div className="facaLogin">
-                <h2>Já tem <br />uma conta?</h2>
-                    <p>Lorem Ipsum has been the industry´s standard dummy tex
-                    ever since the 1500s</p>
-                <button className="loginButton" ref={loginButtonRef}>Faça Login</button>
-            </div>
-        </div>
+                {/* Seção da esquerda (Login) */}
+                <div className="esquerda">
+                    <div className="formLogin">
+                        <h2>Fazer Login</h2>
+                        <form>
+                            <input
+                                type="email"
+                                placeholder="E-mail"
+                                value={email} // Vincula o valor ao estado 'email'
+                                onChange={(e) => setEmail(e.target.value)} // Atualiza o estado 'email'
+                            />
+                            <input
+                                type="password"
+                                placeholder="Senha"
+                                value={senha} // Vincula o valor ao estado 'senha'
+                                onChange={(e) => setSenha(e.target.value)} // Atualiza o estado 'senha'
+                            />
+                            <button type="submit" onClick={handleLogin}>Entrar</button>
+                            {errorMessage && <div className="errorMessage">{errorMessage}</div>}
+                        </form>
+                    </div>
+                    <div className="facaLogin">
+                        <h2>Já tem <br />uma conta?</h2>
+                        <p>Lorem Ipsum has been the industry´s standard dummy tex
+                            ever since the 1500s</p>
+                        <button className="loginButton" ref={loginButtonRef}>Faça Login</button>
+                    </div>
+                </div>
 
                 {/* Seção da direita (Cadastro) */}
-        <div className="direita">
-            <div className="formCadastro">
-                <h2>Cadastro</h2>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Nome" />
-                    <input type="email" placeholder="E-mail" />
-                    <input type="password" placeholder="Senha" />
-                    <input type="password" placeholder="Confirme a sua senha" />
-                    <button type="submit" onClick={() => {
-                        setIsOpen(true);
-                        handleUser();
-                    }}>Cadastrar</button>
-                        {/* Mensagem de sucesso ao criar conta */}
-                    {isOpen && (
-                        <div className="registerComplete">
-                            Conta criada com sucesso!
-                        </div>
-                    )}
-                </form>
+                <div className="direita">
+                    <div className="formCadastro">
+                        <h2>Cadastro</h2>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                placeholder="Nome"
+                                value={nome} // Vincula o valor ao estado 'nome'
+                                onChange={(e) => setNome(e.target.value)} // Atualiza o estado 'nome'
+                            />
+                            <input
+                                type="email"
+                                placeholder="E-mail"
+                                value={email} // Vincula o valor ao estado 'email'
+                                onChange={(e) => setEmail(e.target.value)} // Atualiza o estado 'email'
+                            />
+                            <input
+                                type="password"
+                                placeholder="Senha"
+                                value={senha} // Vincula o valor ao estado 'senha'
+                                onChange={(e) => setSenha(e.target.value)} // Atualiza o estado 'senha'
+                            />
+                            <input
+                                type="password"
+                                placeholder="Confirme a sua senha"
+                                value={confirmarSenha} // Vincula o valor ao estado 'confirmarSenha'
+                                onChange={(e) => setConfirmarSenha(e.target.value)} // Atualiza o estado 'confirmarSenha'
+                            />
+                            <button
+                                type="submit"
+                                onClick={() => {
+                                    setIsOpen(true);
+                                    handleUser();
+                                }}
+                            >
+                                Cadastrar
+                            </button>
+                            {cadastroErrorMessage && (
+                                <div className="errorMessage">{cadastroErrorMessage}</div>
+                            )}
+                            {/* Mensagem de sucesso ao criar conta */}
+                            {isOpen && (
+                                <div className="registerComplete">
+                                    Conta criada com sucesso!
+                                </div>
+                            )}
+                        </form>
+                    </div>
+                    <div className="facaCadastro">
+                        <h2>Não tem <br />uma conta?</h2>
+                        <p>Lorem Ipsum has been the industry´s standard dummy tex</p>
+                        <button className="cadastroButton" ref={cadastroButtonRef}>Cadastra-se</button>
+                    </div>
+                </div>
             </div>
-        <div className="facaCadastro">
-                <h2>Não tem <br />uma conta?</h2>
-                <p>Lorem Ipsum has been the industry´s standard dummy tex</p>
-                <button className="cadastroButton" ref={cadastroButtonRef}>Cadastra-se</button>
-            </div>
-        </div>
-        </div>
-    </section>
-);
+        </section>
+    );
 }
 
 export default Login; // Exporta o componente Login

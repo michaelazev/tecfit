@@ -1,11 +1,12 @@
-// config/db.config.js
-module.exports = {
-    server: 'SEU_SERVIDOR_SQL_SERVER', // Ex: localhost\SQLEXPRESS
-    database: 'tec_fit',
-    user: 'SEU_USUARIO_SQL_SERVER',
-    password: 'SUA_SENHA_SQL_SERVER',
-    options: {
-      encrypt: true, // Para conexões seguras (pode depender da sua configuração)
-      trustServerCertificate: true // Em ambientes de desenvolvimento, pode ser necessário
-    }
-  };
+const mysql = require('mysql2');
+require('dotenv').config({ path: './config/db.env' });
+
+var databaseOptions = {
+  host     : process.env.DB_HOST,
+  database : process.env.DB_NAME,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
+  port     : '3306'
+};
+
+module.exports = databaseOptions;

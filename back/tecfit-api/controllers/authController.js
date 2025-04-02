@@ -1,66 +1,90 @@
-// controllers/authController.js
-const sql = require('mssql');
+const express = require('express');
+const mysql = require('mysql2/promise'); // Use o módulo de promessas do mysql2
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const jwtSecret = 'SEU_SEGREDO_JWT'; // Substitua por uma chave secreta forte
+const router = express.Router();
+const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c720'; // Substitua por uma chave secreta forte
 
-exports.register = async (req, res) => {
-  const { username, password } = req.body;
+// Configuração do pool de conexões
+const pool = mysql.createPool({
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'tec_fit',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+
+// Rota de registro
+router.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
 
   try {
-    const pool = await sql.connect();
-    const checkUserResult = await pool.request()
-      .input('username', sql.VarChar, username)
-      .query('SELECT * FROM Users WHERE Username = @username');
+    const connection = await pool.getConnection();
 
-    if (checkUserResult.recordset.length > 0) {
+    // Verifica se o usuário já existe
+    const [rows] = await connection.execute('SELECT * FROM register WHERE Username = ?', [username]);
+    if (rows.length > 0) {
+      connection.release();
       return res.status(409).json({ message: 'Nome de usuário já existe.' });
     }
 
+    const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
+    if (emailRows.lenght > 0){
+      connection.release();
+      return res.status(409).json({ message: 'Email já existe.' });
+    }
+
+    // Criptografa a senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const result = await pool.request()
-      .input('username', sql.VarChar, username)
-      .input('password', sql.VarChar, hashedPassword)
-      .query('INSERT INTO Users (Username, Password) VALUES (@username, @password); SELECT SCOPE_IDENTITY() AS UserID;');
+    // Insere o novo usuário
+    const [result] = await connection.execute(
+      'INSERT INTO register (Username, Email, Password) VALUES (?, ?, ?)',
+      [username, email, hashedPassword]
+    );
 
-    res.status(201).json({ message: 'Usuário registrado com sucesso!', userId: result.recordset[0].UserID });
+    connection.release();
+    res.status(201).json({ message: 'Usuário registrado com sucesso!', userId: result.insertId });
   } catch (err) {
     console.error('Erro ao registrar usuário:', err);
     res.status(500).json({ message: 'Erro ao registrar usuário.' });
-  } finally {
-    sql.close();
   }
-};
+});
 
-exports.login = async (req, res) => {
-  const { username, password } = req.body;
+// Rota de login
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
 
   try {
-    const pool = await sql.connect();
-    const result = await pool.request()
-      .input('username', sql.VarChar, username)
-      .query('SELECT * FROM Users WHERE Username = @username');
+    const connection = await pool.getConnection();
 
-    if (result.recordset.length === 0) {
+    const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
+    if (emailRows.length === 0) {
+      connection.release();
       return res.status(401).json({ message: 'Credenciais inválidas.' });
     }
 
-    const user = result.recordset[0];
+    const user = emailRows[0];
+
+    // Verifica a senha
     const passwordMatch = await bcrypt.compare(password, user.Password);
-
     if (!passwordMatch) {
+      connection.release();
       return res.status(401).json({ message: 'Credenciais inválidas.' });
     }
 
-    const token = jwt.sign({ userId: user.UserID }, jwtSecret, { expiresIn: '1h' }); // Expira em 1 hora
+    // Gera o token JWT
+    const token = jwt.sign({ userId: user.UserID }, jwtSecret, { expiresIn: '1h' });
 
+    connection.release();
     res.status(200).json({ message: 'Login realizado com sucesso!', token });
   } catch (err) {
     console.error('Erro ao fazer login:', err);
     res.status(500).json({ message: 'Erro ao fazer login.' });
-  } finally {
-    sql.close();
   }
-};
+});
+
+module.exports = router;
