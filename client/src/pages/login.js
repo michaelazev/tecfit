@@ -21,7 +21,7 @@ function Login() {
 
     // Função para lidar com o envio do formulário de cadastro
     const handleSubmit = (event) => {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
+        event.preventDefault();
 
         if (senha !== confirmarSenha) {
             setCadastroErrorMessage("As senhas não coincidem!");
@@ -34,14 +34,13 @@ function Login() {
             password: senha
         };
 
-        // Faz uma requisição POST para o endpoint de registro do back-end
         fetch("tecfit-back.vercel.app/auth/register", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(usuario) // Converte o objeto para JSON
+            body: JSON.stringify(usuario)
         })
             .then((response) => {
                 if (!response.ok) {
@@ -50,12 +49,12 @@ function Login() {
                 return response.json();
             })
             .then((data) => {
-                // Limpa os campos do formulário após o cadastro
                 setNome('');
                 setEmail('');
                 setSenha('');
                 setConfirmarSenha('');
-                setCadastroErrorMessage(""); // Limpa a mensagem de erro
+                setCadastroErrorMessage("");
+                setIsOpen(true); // Exibe a mensagem de sucesso
                 console.log('Cadastro realizado com sucesso:', data);
             })
             .catch((error) => {
@@ -174,40 +173,31 @@ function Login() {
                             <input
                                 type="text"
                                 placeholder="Nome"
-                                value={nome} // Vincula o valor ao estado 'nome'
-                                onChange={(e) => setNome(e.target.value)} // Atualiza o estado 'nome'
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
                             />
                             <input
                                 type="email"
                                 placeholder="E-mail"
-                                value={email} // Vincula o valor ao estado 'email'
-                                onChange={(e) => setEmail(e.target.value)} // Atualiza o estado 'email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <input
                                 type="password"
                                 placeholder="Senha"
-                                value={senha} // Vincula o valor ao estado 'senha'
-                                onChange={(e) => setSenha(e.target.value)} // Atualiza o estado 'senha'
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
                             />
                             <input
                                 type="password"
                                 placeholder="Confirme a sua senha"
-                                value={confirmarSenha} // Vincula o valor ao estado 'confirmarSenha'
-                                onChange={(e) => setConfirmarSenha(e.target.value)} // Atualiza o estado 'confirmarSenha'
+                                value={confirmarSenha}
+                                onChange={(e) => setConfirmarSenha(e.target.value)}
                             />
-                            <button
-                                type="submit"
-                                onClick={() => {
-                                    setIsOpen(true);
-                                    handleUser();
-                                }}
-                            >
-                                Cadastrar
-                            </button>
+                            <button type="submit">Cadastrar</button>
                             {cadastroErrorMessage && (
                                 <div className="errorMessage">{cadastroErrorMessage}</div>
                             )}
-                            {/* Mensagem de sucesso ao criar conta */}
                             {isOpen && (
                                 <div className="registerComplete">
                                     Conta criada com sucesso!
