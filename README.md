@@ -1,4 +1,4 @@
-# Localização de Academias
+# Localização de Academias 🏋️‍♂️
 Este é um projeto Full Stack para localizar academias, desenvolvido com **React** no front-end e **Node.js** com **Express** no back-end. A aplicação permite que os usuários busquem academias por localização, visualizem detalhes e se inscrevam em aulas. O banco de dados utilizado é o **MySQL**.
 
 
@@ -9,7 +9,7 @@ Este é um projeto Full Stack para localizar academias, desenvolvido com **React
 - **Atualizar uma academia existente**
 - **Excluir uma academia**
 
-## Tecnologias utilizadas
+## Tecnologias utilizadas 👨‍💻
 - **React**: Biblioteca para construção de interfaces de usuário.
 - **Node.js**: Ambiente de execução para JavaScript no servidor.
 - **Express**: Framework para construção de APIs em Node.js.
@@ -17,7 +17,7 @@ Este é um projeto Full Stack para localizar academias, desenvolvido com **React
 - **Sequelize**: ORM para facilitar a interação com o MySQL.
 - **Axios**: Para realizar requisições HTTP no front-end.
 
-## Endpoints disponíveis
+## Endpoints disponíveis ✅
 ### 1. **GET /gyms**
 - **Descrição**: Retorna todas as academias.
 - **Resposta de Sucesso**: `200 OK`
@@ -71,7 +71,7 @@ Este é um projeto Full Stack para localizar academias, desenvolvido com **React
 
 ## Como rodar o projeto localmente  ٩(ˊᗜˋ*)و ♡
 
-**1. Faça o Git clone:**
+**1. Faça o Git clone:** 📋
 
     https://github.com/michaelazev/tecfit.git
 
