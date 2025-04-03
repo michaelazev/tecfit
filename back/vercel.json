@@ -1,11 +1,18 @@
 {
     "version": 2,
-    "builds": [{
+    "builds": [
+        {
             "src": "server.js",
             "use": "@vercel/node"
-        }],
-        "routes": [{
+        }
+    ],
+    "routes": [
+        {
             "src": "/(.*)",
             "dest": "server.js"
-        }]
+        }
+    ],
+    "files": {
+        "include": ["back/config/DigiCertGlobalRootCA.crt.pem"]
+    }
 }
