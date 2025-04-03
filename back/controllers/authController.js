@@ -8,10 +8,10 @@ const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c
 
 // Configuração do pool de conexões
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'https://tecfit-back.vercel.app',
-  user: process.env.DB_USER || 'uzzsbteksyu4pto3',
-  password: process.env.DB_PASSWORD || '74TMgwDOmSyVTU8KdSAH',
-  database: process.env.DB_NAME || 'buwucrtiuuqvi3rpduen',
+  host: process.env.DB_HOST || 'bgkkwcsjbnfhmwecxsgy-mysql.services.clever-cloud.com',
+  user: process.env.DB_USER || 'ult4omnuyp1quihk',
+  password: process.env.DB_PASSWORD || 'VpKUWYo1SWIQOc8Rr5T8',
+  database: process.env.DB_NAME || 'bgkkwcsjbnfhmwecxsgy',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

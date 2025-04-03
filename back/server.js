@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 
 // Configuração do CORS
 app.use(cors({
-  origin: 'buwucrtiuuqvi3rpduen-mysql.services.clever-cloud.com', // Permite requisições apenas do frontend
+  origin: 'http://tecfit-back.vercel.app:8080', // Permite requisições apenas do frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
 }));
