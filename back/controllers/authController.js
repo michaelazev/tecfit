@@ -16,9 +16,7 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: {
-    ca: fs.readFileSync('DigiCertGlobalRootCA.crt.pem'), // Certificado SSL
-  }
+
 });
 
 // Rota de registro
