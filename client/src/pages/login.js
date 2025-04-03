@@ -34,7 +34,7 @@ function Login() {
             password: senha
         };
 
-        fetch("http://tecfit-back.vercel.app:8080/auth/register", {
+        fetch("http://tecfit-back.vercel.app/auth/register", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -55,6 +55,13 @@ function Login() {
                 setConfirmarSenha('');
                 setCadastroErrorMessage("");
                 setIsOpen(true); // Exibe a mensagem de sucesso
+            
+                // Salva os dados do usuário no localStorage
+                localStorage.setItem('user', JSON.stringify({
+                    username: usuario.username,
+                    email: usuario.email
+                }));
+            
                 console.log('Cadastro realizado com sucesso:', data);
             })
             .catch((error) => {
@@ -100,7 +107,7 @@ function Login() {
             password: senha
         };
 
-        fetch("http://tecfit-back.vercel.app:8080/auth/login", {
+        fetch("http://tecfit-back.vercel.app/auth/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -123,6 +130,12 @@ function Login() {
             .then((data) => {
                 console.log('Login realizado com sucesso:', data);
                 setErrorMessage("");
+            
+                // Salva os dados do usuário no localStorage
+                localStorage.setItem('user', JSON.stringify({
+                    email: usuario.email
+                }));
+            
                 // Redireciona para a página do usuário
                 navigate('/user');
             })
