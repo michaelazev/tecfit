@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 
 const router = express.Router();
-const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c720'; // Substitua por uma chave secreta forte
+const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c720';
 
 // Configuração do pool de conexões
 const pool = mysql.createPool({
@@ -33,7 +33,7 @@ router.post('/register', async (req, res) => {
     }
 
     const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
-    if (emailRows.lenght > 0){
+    if (emailRows.length > 0) {
       connection.release();
       return res.status(409).json({ message: 'Email já existe.' });
     }
@@ -41,7 +41,7 @@ router.post('/register', async (req, res) => {
     // Criptografa a senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insere o novo usuário
+    // Insere o novo usuário com o userId
     const [result] = await connection.execute(
       'INSERT INTO register (Username, Email, Password) VALUES (?, ?, ?)',
       [username, email, hashedPassword]
@@ -82,7 +82,7 @@ router.post('/login', async (req, res) => {
 
       // Retorna os dados do usuário
       res.status(200).json({
-          username: user.Username, // Certifique-se de que o campo está correto
+          username: user.Username, 
           email: user.Email
       });
   } catch (err) {
