@@ -11,7 +11,7 @@ const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'tecfitdb.mysql.database.azure.com',
   user: process.env.DB_USER || 'tecfit',
-  password: process.env.DB_PASSWORD || 'Tecfit2025',
+  password: process.env.DB_PASSWORD || 'Projetos2025',
   database: process.env.DB_NAME || 'tec_fit',
   waitForConnections: true,
   connectionLimit: 10,
