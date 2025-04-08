@@ -17,9 +17,8 @@ const pool = mysql.createPool({
 // Rota para obter todos os itens (contas)
 router.get('/', async (req, res) => {
   try {
-    const pool = await sql.connect();
-    const result = await pool.request().query('SELECT * FROM register');
-    res.json(result.recordset);
+    const [rows] = await pool.query('SELECT * FROM register');
+    res.json(rows);
   } catch (err) {
     console.error('Erro ao buscar dados:', err);
     res.status(500).json({ message: 'Erro ao buscar dados.' });
