@@ -14,7 +14,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'], // Cabeçalhos permitidos
 }));
 
-// Middleware para analisar JSON
+// Middleware para analisar JSON  
 app.use(express.json());
 
 // Conectar ao banco de dados
