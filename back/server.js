@@ -11,7 +11,7 @@ const port = process.env.PORT || 8080;
 app.use(cors({
   origin: 'https://tecfit-nu.vercel.app', // Permite requisições apenas do frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'], // Cabeçalhos permitidos
 }));
 
 // Middleware para analisar JSON
