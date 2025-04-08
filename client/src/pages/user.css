@@ -1,16 +1,15 @@
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* Garante que o contêiner ocupe toda a altura da tela */
-    margin: 0;
-    /* Remove margens padrão */
-    padding: 0;
-    /* Remove preenchimentos padrão */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que o contêiner ocupe toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimentos padrão */
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho total */
 }
 
 .card1 {
+    margin: 0; /* Remove margens externas */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,11 +20,8 @@
     width: 70%;
     height: 480px;
     background: #12c2e9;
-    /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .left-container {
