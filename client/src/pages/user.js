@@ -27,12 +27,11 @@ function User() {
                             <td>Nome:</td>
                             <td>{userData.username || "N/A"}</td>
                         </tr>
-                        <tr>
+                        <tr>    
                             <td>Email:</td>
                             <td>{userData.email || "N/A"}</td>
                         </tr>
                     </table>
-                    <div className="credit">Made with <span style={{ color: "tomato", fontSize: "20px" }}>❤ </span>by<a href="https://www.learningrobo.com/"> Eu</a></div>
                 </div>
             </div>
         </div>

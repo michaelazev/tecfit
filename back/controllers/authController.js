@@ -60,31 +60,34 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const connection = await pool.getConnection();
+      const connection = await pool.getConnection();
 
-    const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
-    if (emailRows.length === 0) {
+      // Verifica se o email existe
+      const [rows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
+      if (rows.length === 0) {
+          connection.release();
+          return res.status(401).json({ message: 'Credenciais inválidas.' });
+      }
+
+      const user = rows[0];
+
+      // Verifica a senha
+      const isPasswordValid = await bcrypt.compare(password, user.Password);
+      if (!isPasswordValid) {
+          connection.release();
+          return res.status(401).json({ message: 'Credenciais inválidas.' });
+      }
+
       connection.release();
-      return res.status(401).json({ message: 'Credenciais inválidas.' });
-    }
 
-    const user = emailRows[0];
-
-    // Verifica a senha
-    const passwordMatch = await bcrypt.compare(password, user.Password);
-    if (!passwordMatch) {
-      connection.release();
-      return res.status(401).json({ message: 'Credenciais inválidas.' });
-    }
-
-    // Gera o token JWT
-    const token = jwt.sign({ userId: user.UserID }, jwtSecret, { expiresIn: '1h' });
-
-    connection.release();
-    res.status(200).json({ message: 'Login realizado com sucesso!', token });
+      // Retorna os dados do usuário
+      res.status(200).json({
+          username: user.Username, // Certifique-se de que o campo está correto
+          email: user.Email
+      });
   } catch (err) {
-    console.error('Erro ao fazer login:', err);
-    res.status(500).json({ message: 'Erro ao fazer login.' });
+      console.error('Erro ao fazer login:', err);
+      res.status(500).json({ message: 'Erro ao fazer login.' });
   }
 });
 

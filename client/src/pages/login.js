@@ -117,25 +117,21 @@ function Login() {
         })
             .then((response) => {
                 if (!response.ok) {
-                    // Log detalhado da resposta para depuração
-                    console.error('Erro na resposta do servidor:', response.status, response.statusText);
-                    return response.json().then((errorData) => {
-                        console.error('Detalhes do erro:', errorData);
-                        setErrorMessage("Credenciais inválidas!");
-                        throw new Error('Erro ao fazer login');
-                    });
+                    setErrorMessage("Credenciais inválidas!");
+                    throw new Error('Erro ao fazer login');
                 }
                 return response.json();
             })
             .then((data) => {
                 console.log('Login realizado com sucesso:', data);
                 setErrorMessage("");
-            
+        
                 // Salva os dados do usuário no localStorage
                 localStorage.setItem('user', JSON.stringify({
-                    email: usuario.email
+                    username: data.username, // Certifique-se de que o backend retorna o username
+                    email: data.email
                 }));
-            
+        
                 // Redireciona para a página do usuário
                 navigate('/user');
             })
