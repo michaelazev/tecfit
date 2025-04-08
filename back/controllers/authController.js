@@ -13,7 +13,6 @@ const pool = mysql.createPool({
   user: process.env.DB_USER || 'tecfit',
   password: process.env.DB_PASSWORD || 'Projetos2025',
   database: process.env.DB_NAME || 'tec_fit',
-  port: process.env.DB_PORT || 3006, // Adicionando a porta 3006
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
