@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const pool = await sql.connect();
-    const result = await pool.request().query('SELECT * FROM DataItems');
+    const result = await pool.request().query('SELECT * FROM register');
     res.json(result.recordset);
   } catch (err) {
     console.error('Erro ao buscar dados:', err);
