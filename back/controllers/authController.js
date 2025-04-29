@@ -2,15 +2,16 @@ const express = require('express');
 const mysql = require('mysql2/promise'); // Use o módulo de promessas do mysql2
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
 
 const router = express.Router();
-const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c720'; // Substitua por uma chave secreta forte
+const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c720';
 
 // Configuração do pool de conexões
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
+  host: process.env.DB_HOST || 'tecfitdb.mysql.database.azure.com',
+  user: process.env.DB_USER || 'tecfit',
+  password: process.env.DB_PASSWORD || 'Projetos2025',
   database: process.env.DB_NAME || 'tec_fit',
   waitForConnections: true,
   connectionLimit: 10,
@@ -32,7 +33,7 @@ router.post('/register', async (req, res) => {
     }
 
     const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
-    if (emailRows.lenght > 0){
+    if (emailRows.length > 0) {
       connection.release();
       return res.status(409).json({ message: 'Email já existe.' });
     }
@@ -40,7 +41,7 @@ router.post('/register', async (req, res) => {
     // Criptografa a senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insere o novo usuário
+    // Insere o novo usuário com o userId
     const [result] = await connection.execute(
       'INSERT INTO register (Username, Email, Password) VALUES (?, ?, ?)',
       [username, email, hashedPassword]
@@ -59,31 +60,34 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const connection = await pool.getConnection();
+      const connection = await pool.getConnection();
 
-    const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
-    if (emailRows.length === 0) {
+      // Verifica se o email existe
+      const [rows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
+      if (rows.length === 0) {
+          connection.release();
+          return res.status(401).json({ message: 'Credenciais inválidas.' });
+      }
+
+      const user = rows[0];
+
+      // Verifica a senha
+      const isPasswordValid = await bcrypt.compare(password, user.Password);
+      if (!isPasswordValid) {
+          connection.release();
+          return res.status(401).json({ message: 'Credenciais inválidas.' });
+      }
+
       connection.release();
-      return res.status(401).json({ message: 'Credenciais inválidas.' });
-    }
 
-    const user = emailRows[0];
-
-    // Verifica a senha
-    const passwordMatch = await bcrypt.compare(password, user.Password);
-    if (!passwordMatch) {
-      connection.release();
-      return res.status(401).json({ message: 'Credenciais inválidas.' });
-    }
-
-    // Gera o token JWT
-    const token = jwt.sign({ userId: user.UserID }, jwtSecret, { expiresIn: '1h' });
-
-    connection.release();
-    res.status(200).json({ message: 'Login realizado com sucesso!', token });
+      // Retorna os dados do usuário
+      res.status(200).json({
+          username: user.Username, 
+          email: user.Email
+      });
   } catch (err) {
-    console.error('Erro ao fazer login:', err);
-    res.status(500).json({ message: 'Erro ao fazer login.' });
+      console.error('Erro ao fazer login:', err);
+      res.status(500).json({ message: 'Erro ao fazer login.' });
   }
 });
 

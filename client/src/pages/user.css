@@ -8,6 +8,9 @@
     /* Remove margens padrão */
     padding: 0;
     /* Remove preenchimentos padrão */
+    position: relative;
+    left: 20rem; /* Solução temporária */
+    
 }
 
 .card1 {
