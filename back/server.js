@@ -9,7 +9,14 @@ const port = process.env.PORT || 8080;
 
 // Configuração do CORS
 app.use(cors({
-  origin: 'https://tecfit-nu.vercel.app', // Permite requisições apenas do frontend
+  origin: (origin, callback) => {
+    const allowedOrigins = ['https://tecfit-nu.vercel.app', 'http://localhost:3000'];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, origin); // Permite a origem
+    } else {
+      callback(new Error('Not allowed by CORS')); // Bloqueia a origem
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'], // Cabeçalhos permitidos
 }));
