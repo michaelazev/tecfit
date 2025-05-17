@@ -17,9 +17,13 @@ app.use(cors({
       callback(new Error('Not allowed by CORS')); // Bloqueia a origem
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Inclua 'OPTIONS' para requisições preflight
   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'], // Cabeçalhos permitidos
+  credentials: true, // Permite envio de cookies e credenciais
 }));
+
+// Middleware para lidar com requisições preflight
+app.options('*', cors()); // Responde automaticamente às requisições OPTIONS
 
 // Middleware para analisar JSON  
 app.use(express.json());
