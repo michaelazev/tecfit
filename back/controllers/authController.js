@@ -80,10 +80,21 @@ router.post('/login', async (req, res) => {
 
       connection.release();
 
-      // Retorna os dados do usuário
+      // Gera o token JWT
+      const token = jwt.sign(
+          { userId: user.Id, username: user.Username, email: user.Email }, // Payload
+          jwtSecret, // Chave secreta
+          { expiresIn: '1h' } // Tempo de expiração
+      );
+
+      // Retorna o token e os dados do usuário
       res.status(200).json({
-          username: user.Username, 
-          email: user.Email
+          message: 'Login bem-sucedido!',
+          token,
+          user: {
+              username: user.Username,
+              email: user.Email
+          }
       });
   } catch (err) {
       console.error('Erro ao fazer login:', err);
