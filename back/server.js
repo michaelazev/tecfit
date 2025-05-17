@@ -9,21 +9,10 @@ const port = process.env.PORT || 8080;
 
 // Configuração do CORS
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = ['https://tecfit-nu.vercel.app', 'http://localhost:3000'];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, origin); // Permite a origem
-    } else {
-      callback(new Error('Not allowed by CORS')); // Bloqueia a origem
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Inclua 'OPTIONS' para requisições preflight
+  origin: 'https://tecfit-nu.vercel.app', // Permite requisições apenas do frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'], // Cabeçalhos permitidos
-  credentials: true, // Permite envio de cookies e credenciais
 }));
-
-// Middleware para lidar com requisições preflight
-app.options('*', cors()); // Responde automaticamente às requisições OPTIONS
 
 // Middleware para analisar JSON  
 app.use(express.json());
