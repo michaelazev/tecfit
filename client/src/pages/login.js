@@ -168,8 +168,7 @@ function Login() {
                     </div>
                     <div className="facaLogin">
                         <h2>Já tem <br />uma conta?</h2>
-                        <p>Lorem Ipsum has been the industry´s standard dummy tex
-                            ever since the 1500s</p>
+                        <p>Faça o Login!</p>
                         <button className="loginButton" ref={loginButtonRef}>Faça Login</button>
                     </div>
                 </div>
