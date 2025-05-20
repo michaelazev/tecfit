@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const sql = require('mysql2');
-const dbConfig = require('./config/db.config'); // Certifique-se de que esse arquivo existe
-const authRoutes = require('./controllers/authController'); // Certifique-se de que esse arquivo existe
-const dataRoutes = require('./controllers/dataController'); // Certifique-se de que esse arquivo existe
+const dbConfig = require('./config/db.config');
+const authRoutes = require('./controllers/authController');
+const dataRoutes = require('./controllers/userController');
 const app = express();
 const port = process.env.PORT || 8080;
 
