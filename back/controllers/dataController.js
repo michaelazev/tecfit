@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
   const { name, description } = req.body;
   try {
     const [result] = await pool.query(
-      'INSERT INTO null (Name, Description) VALUES (?, ?)',
+      'INSERT INTO register (Username, Email) VALUES (?, ?)',
       [name, description]
     );
 
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
   const { name, description } = req.body;
   try {
     const [result] = await pool.query(
-      'UPDATE null SET Name = ?, Description = ?, UpdatedAt = NOW() WHERE ItemID = ?',
+      'UPDATE register SET Username = ?, Description = ?, UpdatedAt = NOW() WHERE UserId = ?',
       [name, description, itemId]
     );
 
@@ -83,7 +83,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
-    const [result] = await pool.query('DELETE FROM null WHERE ItemID = ?', [itemId]);
+    const [result] = await pool.query('DELETE FROM register WHERE UserId = ?', [itemId]);
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Item não encontrado.' });

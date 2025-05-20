@@ -25,7 +25,7 @@ function User() {
                 <div className="left-container">
                     <img className="imgProfile" src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__480.jpg" alt="Profile Image" />
                     <h2 className="gradienttext2">{userData.username || "Usuário"}</h2>
-                    <p className="roleName">Bombado</p>
+                    <p className="roleName">Usuário</p>
                 </div>
                 <div className="right-container">
                     <h3 className="gradienttext">Seu Perfil</h3>
