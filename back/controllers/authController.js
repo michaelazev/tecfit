@@ -26,13 +26,13 @@ router.post('/register', async (req, res) => {
     const connection = await pool.getConnection();
 
     // Verifica se o usuário já existe
-    const [rows] = await connection.execute('SELECT * FROM register WHERE Username = ?', [username]);
+    const [rows] = await connection.execute('SELECT * FROM users WHERE Username = ?', [username]);
     if (rows.length > 0) {
       connection.release();
       return res.status(409).json({ message: 'Nome de usuário já existe.' });
     }
 
-    const [emailRows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
+    const [emailRows] = await connection.execute('SELECT * FROM users WHERE Email = ?', [email]);
     if (emailRows.length > 0) {
       connection.release();
       return res.status(409).json({ message: 'Email já existe.' });
@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
 
     // Insere o novo usuário com o userId
     const [result] = await connection.execute(
-      'INSERT INTO register (Username, Email, Password) VALUES (?, ?, ?)',
+      'INSERT INTO users (Username, Email, Password) VALUES (?, ?, ?)',
       [username, email, hashedPassword]
     );
 
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
       const connection = await pool.getConnection();
 
       // Verifica se o email existe
-      const [rows] = await connection.execute('SELECT * FROM register WHERE Email = ?', [email]);
+      const [rows] = await connection.execute('SELECT * FROM users WHERE Email = ?', [email]);
       if (rows.length === 0) {
           connection.release();
           return res.status(401).json({ message: 'Credenciais inválidas.' });

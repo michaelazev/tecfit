@@ -17,7 +17,7 @@ const pool = mysql.createPool({
 // Rota para obter todos os itens (contas)
 router.get('/', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT * FROM register');
+    const [rows] = await pool.query('SELECT * FROM users');
     res.json(rows);
   } catch (err) {
     console.error('Erro ao buscar dados:', err);
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
-    const [rows] = await pool.query('SELECT * FROM register WHERE UserId = ?', [itemId]);
+    const [rows] = await pool.query('SELECT * FROM users WHERE UserId = ?', [itemId]);
 
     if (rows.length === 0) {
       return res.status(404).json({ message: 'Item não encontrado.' });
@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
   const { name, description } = req.body;
   try {
     const [result] = await pool.query(
-      'INSERT INTO register (Username, Email) VALUES (?, ?)',
+      'INSERT INTO users (Username, Email) VALUES (?, ?)',
       [name, description]
     );
 
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
   const { name, description } = req.body;
   try {
     const [result] = await pool.query(
-      'UPDATE register SET Username = ?, Description = ?, UpdatedAt = NOW() WHERE UserId = ?',
+      'UPDATE users SET Username = ?, Description = ?, UpdatedAt = NOW() WHERE UserId = ?',
       [name, description, itemId]
     );
 
@@ -83,7 +83,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
-    const [result] = await pool.query('DELETE FROM register WHERE UserId = ?', [itemId]);
+    const [result] = await pool.query('DELETE FROM users WHERE UserId = ?', [itemId]);
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Item não encontrado.' });
