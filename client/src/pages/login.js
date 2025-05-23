@@ -215,7 +215,7 @@ function Login() {
                     </div>
                     <div className="facaCadastro">
                         <h2>Não tem <br />uma conta?</h2>
-                        <p>Lorem Ipsum has been the industry´s standard dummy tex</p>
+                        <p>Crie agora!</p>
                         <button className="cadastroButton" ref={cadastroButtonRef}>Cadastra-se</button>
                     </div>
                 </div>
