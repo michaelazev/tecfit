@@ -53,7 +53,11 @@ function App() {
     {
       name: "SMART-FIT",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Recife - PE",
-      status: "Matricule-se",
+      status: (
+        <a href="/login" style={{ textDecoration: "none", color: "inherit" }}>
+          Matricule-se
+        </a>
+      ),
       image: "/img/acad2.jpg" 
     },
     {
@@ -74,7 +78,11 @@ function App() {
     {
       name: "SMART-FIT",
       address: "Av. Jurua, 307 - Alphaville - CEP 06455-010 - Barueri - SP",
-      status: "Matricule-se",
+      status: (
+        <a href="/login" style={{ textDecoration: "none", color: "inherit" }}>
+          Matricule-se
+        </a>
+      ),
       image: "/img/acad1.jpg" 
     },
     {
@@ -104,19 +112,19 @@ function App() {
   </button>
 
       {/* Menu lateral com links */}
-  <div className={`menu ${menuOpen ? "active" : ""}`}>
-    <nav>
-      <a href="/sobre" style={{ animationDelay: "0.2s" }}>
-        <h6>Sobre</h6>
-      </a>
-      <a href="/servico" style={{ animationDelay: "0.4s" }}>
-        <h6>Serviços</h6>
-      </a>
-      <a href="/contato" style={{ animationDelay: "0.6s" }}>
-          <h6>Usuário</h6>
-      </a>
-    </nav>
-  </div>
+      <div className={`menu ${menuOpen ? "active" : ""}`}>
+        <nav>
+          <a href="/sobre" style={{ animationDelay: "0.2s" }}>
+            <h6>Sobre</h6>
+          </a>
+          <a href="/favorite" style={{ animationDelay: "0.4s" }}>
+            <h6>Favorito</h6>
+          </a>
+          <a href="/contato" style={{ animationDelay: "0.6s" }}>
+            <h6>Usuário</h6>
+          </a>
+        </nav>
+      </div>
 
       {/* Cabeçalho com título e imagem */}
   <header>
@@ -128,7 +136,7 @@ function App() {
         Cada repetição te aproxima da sua melhor versão. A dor passa, o progresso fica. Quando quiser parar, lembre-se: é agora que a evolução acontece. Faça UMA A MAIS e conquiste!
         </p>
 
-      {/* Botão de login */}
+      {/* sobre nos */}
     <div className="header__btn">
         <a href="/sobre">
           <button className="btn login">Sobre nós</button>
@@ -155,7 +163,7 @@ function App() {
   
       {/* Lista de academias disponíveis */}
     <div className="unit-list">
-      <h2 className="title">Redes Proximas</h2>
+      <h2 className="title">Redes Proximas</h2>     
     <div className="units">
       {units.map((unit, index) => (
     <div key={index} className="unit-card">
