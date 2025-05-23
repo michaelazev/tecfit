@@ -1,17 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const sql = require('mysql2');
-const dbConfig = require('./config/db.config');
-const authRoutes = require('./controllers/authController');
-const dataRoutes = require('./controllers/userController');
+const dbConfig = require('./config/db.config'); // Certifique-se de que esse arquivo existe
+const authRoutes = require('./controllers/authController'); // Certifique-se de que esse arquivo existe
+const dataRoutes = require('./controllers/dataController'); // Certifique-se de que esse arquivo existe
 const app = express();
 const port = process.env.PORT || 8080;
 
 // Configuração do CORS
 app.use(cors({
-  origin: 'https://tecfit-nu.vercel.app', // Permite requisições apenas do frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'], // Cabeçalhos permitidos
+  origin: ['https://tecfit-nu.vercel.app', 'http://localhost:3000'], // Permite requisições do frontend e do localhost
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
 }));
 
 // Middleware para analisar JSON  
