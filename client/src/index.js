@@ -5,7 +5,7 @@ import "./styles.css";
 import LoginPage from './pages/login';
 import Sobrepage from './pages/sobre';
 import UserPage from './pages/user';
-import Favorites from './pages/favorite';
+import FavoritesPage from './pages/favorite';
 import {
   createBrowserRouter,
   RouterProvider,
