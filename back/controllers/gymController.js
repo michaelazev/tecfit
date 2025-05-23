@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
         res.json(rows);
     } catch (err) {
         console.error('Erro ao buscar dados:', err);
-        res.status(500).json({ message: 'Erro ao buscar dados.' });
+        res.status(500).json({ message: 'Erro ao buscar dados de academia.' });
     }
 });
 // Rota para obter um item por ID (academias)
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
         const [rows] = await pool.query('SELECT * FROM gym WHERE GymId = ?', [itemId]);
 
         if (rows.length === 0) {
-            return res.status(404).json({ message: 'Item não encontrado.' });
+            return res.status(404).json({ message: 'Academia não encontrado.' });
         }
 
         res.json(rows[0]);
