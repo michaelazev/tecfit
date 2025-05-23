@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: black;
+}
+
+.barra-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #CDCDCD;
+    position: relative;
+    border-radius: 15px;
+}
+
+.barra-menu .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -20px;
+}
