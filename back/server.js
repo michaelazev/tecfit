@@ -3,7 +3,8 @@ const cors = require('cors');
 const sql = require('mysql2');
 const dbConfig = require('./config/db.config');
 const authRoutes = require('./controllers/authController');
-const dataRoutes = require('./controllers/userController');
+const userDataRoutes = require('./controllers/userController');
+const gymDataRoutes = require('./controllers/gymController');
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -34,7 +35,8 @@ connectToDatabase();
 app.use('/auth', authRoutes);
 
 // Rotas de dados (protegidas por autenticação)
-app.use('/api/data', dataRoutes);
+app.use('/api/data/users', userDataRoutes);
+app.use('/api/data/gym', gymDataRoutes);
 
 app.listen(port, () => {
   console.log(`🚀 Servidor rodando na porta ${port}`);
