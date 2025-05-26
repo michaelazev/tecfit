@@ -37,8 +37,8 @@ connectToDatabase();
 app.use('/auth', authRoutes);
 
 // Rotas de dados (protegidas por autenticação)
-app.use('/api/data/users', authenticateToken, userDataRoutes);
-app.use('/api/data/gym', authenticateToken, gymDataRoutes);
+app.use('/api/data/users', userDataRoutes);
+app.use('/api/data/gym', gymDataRoutes);
 app.use('/user', authenticateToken, userDataRoutes);
 app.use('/favorite', authenticateToken);
 
