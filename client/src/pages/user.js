@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./user.css";
 import backgroundImage from "../assets/background.jpg"; // Caminho relativo para a imagem
 
 function User() {
     const [userData, setUserData] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUserData(JSON.parse(storedUser));
+        const token = localStorage.getItem('token');
+        if (!storedUser || !token) {
+            // Se não estiver autenticado, redireciona para login
+            navigate('/login');
+            return;
         }
-    }, []);
+        setUserData(JSON.parse(storedUser));
+    }, [navigate]);
 
     return (
         <div
@@ -30,14 +36,16 @@ function User() {
                 <div className="right-container">
                     <h3 className="gradienttext">Seu Perfil</h3>
                     <table>
-                        <tr>
-                            <td>Nome:</td>
-                            <td>{userData.username || "N/A"}</td>
-                        </tr>
-                        <tr>    
-                            <td>Email:</td>
-                            <td>{userData.email || "N/A"}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Nome:</td>
+                                <td>{userData.username || "N/A"}</td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td>{userData.email || "N/A"}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

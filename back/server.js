@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const sql = require('mysql2');
 const dbConfig = require('./config/db.config');
-const jwtSecret = process.env.JWT_SECRET;
 const authRoutes = require('./controllers/authController');
 const userDataRoutes = require('./controllers/userController');
 const gymDataRoutes = require('./controllers/gymController');
