@@ -6,6 +6,7 @@ import LoginPage from './pages/login';
 import Sobrepage from './pages/sobre';
 import UserPage from './pages/user';
 import FavoritesPage from './pages/favorite';
+import NewGymPage from './pages/new_gym';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
   {
     path: "/favorite",
     element: <FavoritesPage />,
-  }
+  },
+  {
+    path: "/create_gym",
+    element: <NewGymPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
