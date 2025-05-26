@@ -55,13 +55,13 @@ function Login() {
                 setConfirmarSenha('');
                 setCadastroErrorMessage("");
                 setIsOpen(true); // Exibe a mensagem de sucesso
-            
+
                 // Salva os dados do usuário no localStorage
                 localStorage.setItem('user', JSON.stringify({
                     username: usuario.username,
                     email: usuario.email
                 }));
-            
+
                 console.log('Cadastro realizado com sucesso:', data);
             })
             .catch((error) => {
@@ -125,13 +125,11 @@ function Login() {
             .then((data) => {
                 console.log('Login realizado com sucesso:', data);
                 setErrorMessage("");
-        
-                // Salva os dados do usuário no localStorage
-                localStorage.setItem('user', JSON.stringify({
-                    username: data.username, // Certifique-se de que o backend retorna o username
-                    email: data.email
-                }));
-        
+
+                // Salva os dados do usuário e o token no localStorage
+                localStorage.setItem('user', JSON.stringify(data.user)); // <-- Corrigido!
+                localStorage.setItem('token', data.token); // <-- Adicionado!
+
                 // Redireciona para a página do usuário
                 navigate('/user');
             })
