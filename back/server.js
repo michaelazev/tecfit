@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const sql = require('mysql2');
 const dbConfig = require('./config/db.config');
+const jwtSecret = process.env.JWT_SECRET;
 const authRoutes = require('./controllers/authController');
 const userDataRoutes = require('./controllers/userController');
 const gymDataRoutes = require('./controllers/gymController');
+const authenticateToken = require('./middleware/authMiddleware');
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -35,8 +38,10 @@ connectToDatabase();
 app.use('/auth', authRoutes);
 
 // Rotas de dados (protegidas por autenticação)
-app.use('/api/data/users', userDataRoutes);
-app.use('/api/data/gym', gymDataRoutes);
+app.use('/api/data/users', authenticateToken, userDataRoutes);
+app.use('/api/data/gym', authenticateToken, gymDataRoutes);
+app.use('/user', authenticateToken, userDataRoutes);
+app.use('/favorite', authenticateToken);
 
 app.listen(port, () => {
   console.log(`🚀 Servidor rodando na porta ${port}`);
