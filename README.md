@@ -68,7 +68,7 @@ DELETE /gyms/:id
 •	Descrição: Exclui uma academia.
 •	Resposta de Sucesso: ‘204 No Content’
 
-Como rodar o projeto localmente ٩(ˊᗜˋ*)و 
+# Como rodar o projeto localmente ٩(ˊᗜˋ*)و 
 
 1.	Clone o repositório
 git clone https://github.com/seu-usuario/localizacao-academias.git
