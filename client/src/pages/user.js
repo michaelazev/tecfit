@@ -47,6 +47,11 @@ function User() {
                             </tr>
                         </tbody>
                     </table>
+                    <button className="logout-button" onClick={() => {
+                        localStorage.removeItem('user');
+                        localStorage.removeItem('token');
+                        navigate('/login');
+                    }}> Sair </button>
                 </div>
             </div>
         </div>
