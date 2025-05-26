@@ -1,7 +1,7 @@
 import styles from "./Favorites.module.css";
 import React, { useState } from "react";
 
-function new_gym() {
+function New_gym() {
     // Estado para controlar a abertura do menu
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -50,4 +50,4 @@ function new_gym() {
     );  
 }
 
-export default new_gym;
+export default New_gym;
