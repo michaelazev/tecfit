@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,7 +18,7 @@ function App() {
       duration: 1000,
     };
     
-  // Aplica animações aos elementos do cabeçalho
+    // Aplica animações aos elementos do cabeçalho
     ScrollReveal().reveal(".header__image img", {
       ...scrollRevealOption,
       origin: "right",
@@ -93,23 +92,33 @@ function App() {
     },
   ];
 
+  // Função para redirecionar ao clicar em Login
+  const handleLoginClick = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      window.location.href = '/user';
+    } else {
+      window.location.href = '/login';
+    }
+  };
+
   return (
     <div className={`app ${menuOpen ? "open" : ""}`}> {/* Classe condicional para menu aberto */}
 
       {/* Barra de topo com logo e botão de login */}
-  <div className="barra-topo">
-    <div className="logo">
-      <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
-    </div>
-    <div className="botoes">
-      <a href="/login"><button class="login">Login</button></a>
-    </div>
-  </div>
+      <div className="barra-topo">
+        <div className="logo">
+          <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
+        </div>
+        <div className="botoes">
+          <button className="login" onClick={handleLoginClick}>Login</button>
+        </div>
+      </div>
 
       {/* Botão para abrir/fechar menu lateral */}
-  <button className="Tec" onClick={toggleMenu}>
-    <span className="Tec-icon"></span>
-  </button>
+      <button className="Tec" onClick={toggleMenu}>
+        <span className="Tec-icon"></span>
+      </button>
 
       {/* Menu lateral com links */}
       <div className={`menu ${menuOpen ? "active" : ""}`}>
@@ -127,78 +136,78 @@ function App() {
       </div>
 
       {/* Cabeçalho com título e imagem */}
-  <header>
-    <div className="section__container header__container" id="home">
-      <div className="header__content">
-        <h1>BEM VINDO <br /> A TEC FIT!</h1>
-        <h2>PRIMEIRO MÊS GRATIS</h2>
-        <p>
-        Cada repetição te aproxima da sua melhor versão. A dor passa, o progresso fica. Quando quiser parar, lembre-se: é agora que a evolução acontece. Faça UMA A MAIS e conquiste!
-        </p>
+      <header>
+        <div className="section__container header__container" id="home">
+          <div className="header__content">
+            <h1>BEM VINDO <br /> A TEC FIT!</h1>
+            <h2>PRIMEIRO MÊS GRATIS</h2>
+            <p>
+              Cada repetição te aproxima da sua melhor versão. A dor passa, o progresso fica. Quando quiser parar, lembre-se: é agora que a evolução acontece. Faça UMA A MAIS e conquiste!
+            </p>
 
-      {/* sobre nos */}
-    <div className="header__btn">
-        <a href="/sobre">
-          <button className="btn login">Sobre nós</button>
-        </a>
-    </div>
-    </div>
-    <div className="header__image">
-        <img src="/img/mulher_malh-removebg-preview.png" alt="header" />
-    </div>
-    </div>
-  </header>
+            {/* sobre nos */}
+            <div className="header__btn">
+              <a href="/sobre">
+                <button className="btn login">Sobre nós</button>
+              </a>
+            </div>
+          </div>
+          <div className="header__image">
+            <img src="/img/mulher_malh-removebg-preview.png" alt="header" />
+          </div>
+        </div>
+      </header>
 
       {/* Seção "Vamos crescer juntos!" */}
-    <div className="map-section">
-    <div className="map-content">
-      <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
-      <h2>Encontre academia <br/> mais próxima de você.</h2>
-    <button className="map-button">Ver mais</button>
-    </div>
-    <div className="map-image">
-      <img src="/img/mapa1.png" alt="Mapa das Unidades" />
-    </div>
-    </div>
-  
+      <div className="map-section">
+        <div className="map-content">
+          <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
+          <h2>Encontre academia <br/> mais próxima de você.</h2>
+          <button className="map-button">Ver mais</button>
+        </div>
+        <div className="map-image">
+          <img src="/img/mapa1.png" alt="Mapa das Unidades" />
+        </div>
+      </div>
+    
       {/* Lista de academias disponíveis */}
-    <div className="unit-list">
-      <h2 className="title">Redes Proximas</h2>     
-    <div className="units">
-      {units.map((unit, index) => (
-    <div key={index} className="unit-card">
-      <img src={unit.image} alt={unit.name} className="unit-image" />
-    <div className="unit-header">{unit.name}</div>
-    <div className="unit-body">
-        <p className="unit-address">📍{unit.address}</p>
-        <p className="unit-plans">
-      <span className="bold">Plano Anual</span> <span className="prime">Plano Plus</span>
-        </p>
-    <button className="unit-button">{unit.status}</button>
-    </div>
-  </div>
-  ))}
-  </div>
-</div>
+      <div className="unit-list">
+        <h2 className="title">Redes Proximas</h2>     
+        <div className="units">
+          {units.map((unit, index) => (
+            <div key={index} className="unit-card">
+              <img src={unit.image} alt={unit.name} className="unit-image" />
+              <div className="unit-header">{unit.name}</div>
+              <div className="unit-body">
+                <p className="unit-address">📍{unit.address}</p>
+                <p className="unit-plans">
+                  <span className="bold">Plano Anual</span> <span className="prime">Plano Plus</span>
+                </p>
+                <button className="unit-button">{unit.status}</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       {/* Lista de academias disponíveis 2 */}
-  <div className="unit-list">
-    <div className="units">
-      {units2.map((unit, index) => (
-    <div key={index} className="unit-card">
-        <img src={unit.image} alt={unit.name} className="unit-image" />
-        <div className="unit-header">{unit.name}</div>
-        <div className="unit-body">
-          <p className="unit-address">📍{unit.address}</p>
-          <p className="unit-plans">
-            <span className="bold">Plano Anual</span> <span className="prime">Plano Prime</span>
-          </p>
-          <button className="unit-button">{unit.status}</button>
-          </div>
-          </div>
-        ))}
+      <div className="unit-list">
+        <div className="units">
+          {units2.map((unit, index) => (
+            <div key={index} className="unit-card">
+              <img src={unit.image} alt={unit.name} className="unit-image" />
+              <div className="unit-header">{unit.name}</div>
+              <div className="unit-body">
+                <p className="unit-address">📍{unit.address}</p>
+                <p className="unit-plans">
+                  <span className="bold">Plano Anual</span> <span className="prime">Plano Prime</span>
+                </p>
+                <button className="unit-button">{unit.status}</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 
