@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFavoriteContext } from "./Contextfavo";
 import { Link } from "react-router-dom";
-import styles from "./favorites.module.css";
+import styles from "favorites.module.css";
 
 function Favorite() {
     const { favorite, addFavorite } = useFavoriteContext();
