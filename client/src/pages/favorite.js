@@ -48,6 +48,9 @@ function Favorite() {
                     <Link to="/contato" style={{ animationDelay: "0.6s" }}>
                         <h6>Usuário</h6>
                     </Link>
+                    <a href="/logout" style={{ animationDelay: "0.8s" }}>
+                        <h6>Sair</h6>
+                    </a>
                 </nav>
             </div>
             {/* Lista de favoritos */}

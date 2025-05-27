@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 import "./App.css";
 import { useFavoriteContext } from "./pages/Contextfavo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const units = [
     {
@@ -73,6 +73,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { favorite, addFavorite } = useFavoriteContext();
   const favoriteUnits = favorite;
+  const navigate = useNavigate();
 
   // Função para abrir/fechar menu lateral
   const toggleMenu = () => {
@@ -137,7 +138,7 @@ function App() {
             <h6>Favorito</h6>
           </Link>
           <Link to="/contato" style={{ animationDelay: "0.6s" }}>
-            <h6>Usuário</h6>
+            <h6>Contato</h6>
           </Link>
         </nav>
       </div>

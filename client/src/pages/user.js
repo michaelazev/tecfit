@@ -6,6 +6,7 @@ import { FaInstagram, FaLinkedin, FaShareAlt, FaRegBookmark } from "react-icons/
 function User() {
     // Estado para controlar a abertura do menu
     const [menuOpen, setMenuOpen] = useState(false);
+    const [nome, setNome] = useState(""); // Novo estado para o nome
     const navigate = useNavigate();
 
     // Verifica autenticação ao montar o componente
@@ -14,6 +15,8 @@ function User() {
         if (!token) {
             navigate("/login");
         }
+        const nomeSalvo = localStorage.getItem("nome");
+        if (nomeSalvo) setNome(nomeSalvo);
     }, [navigate]);
 
     // Função para alternar o estado do menu (aberto/fechado)
@@ -62,7 +65,7 @@ function User() {
                         alt="Profile"
                     />
                     <div className="profile-header">
-                        <h3>Renato Cariani</h3>
+                        <h3>{nome || "Usuário"}</h3>
                     </div>
                     <div className="stats">
                         <span><b>2</b> Projetos</span>

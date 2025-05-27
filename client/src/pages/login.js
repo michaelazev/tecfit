@@ -19,6 +19,15 @@ function Login() {
     const [confirmarSenha, setConfirmarSenha] = useState(""); // Estado para a confirmação da senha
     const [cadastroErrorMessage, setCadastroErrorMessage] = useState(""); // Estado para mensagem de erro no cadastro
 
+ // Redireciona para /user se já estiver logado
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/user");
+    }
+  }, [navigate]);
+
+
     // Função para lidar com o envio do formulário de cadastro
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -61,6 +70,9 @@ function Login() {
                     username: usuario.username,
                     email: usuario.email
                 }));
+
+                // Salva o nome do usuário no localStorage para exibir em /user
+                localStorage.setItem('nome', usuario.username);
 
                 console.log('Cadastro realizado com sucesso:', data);
             })
@@ -127,8 +139,13 @@ function Login() {
                 setErrorMessage("");
 
                 // Salva os dados do usuário e o token no localStorage
-                localStorage.setItem('user', JSON.stringify(data.user)); // <-- Corrigido!
-                localStorage.setItem('token', data.token); // <-- Adicionado!
+                localStorage.setItem('user', JSON.stringify(data.user));
+                localStorage.setItem('token', data.token);
+
+                // Salva o nome do usuário no localStorage para exibir em /user
+                if (data.user && data.user.username) {
+                    localStorage.setItem('nome', data.user.username);
+                }
 
                 // Redireciona para a página do usuário
                 navigate('/user');
