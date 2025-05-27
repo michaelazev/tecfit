@@ -5,42 +5,22 @@ import "./styles.css";
 import LoginPage from './pages/login';
 import Sobrepage from './pages/sobre';
 import UserPage from './pages/user';
-import FavoritesPage from './pages/favorite';
-import NewGymPage from './pages/new_gym';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/sobre",
-    element: <Sobrepage />,
-  },
-  {
-    path: "/user",
-    element: <UserPage />,
-  },
-  {
-    path: "/favorite",
-    element: <FavoritesPage />,
-  },
-  {
-    path: "/create_gym",
-    element: <NewGymPage />,
-  },
-]);
+import Favorites from './pages/favorite';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { FavoritesProvider } from "./pages/Contextfavo";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <RouterProvider router={router} />
+  <BrowserRouter>
+    <FavoritesProvider>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sobre" element={<Sobrepage />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/favorite" element={<Favorites />} />
+      </Routes>
+    </FavoritesProvider>
+  </BrowserRouter>
 );
+
