@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFavoriteContext } from "./Contextfavo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./favorite.module.css";
 
 function Favorite() {
     const { favorite, addFavorite } = useFavoriteContext();
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Verifica se o usuário está autenticado (exemplo usando token no localStorage)
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
+        }
+    }, [navigate]);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
