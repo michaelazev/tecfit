@@ -21,7 +21,8 @@ Este é um projeto Full Stack para localizar academias, desenvolvido com **React
 - **Descrição**: Retorna todas as academias.
 - **Resposta de Sucesso**: `200 OK`
 - **Exemplo de resposta**:
-  
+
+  ```sh
 [
       {
           "id": 1,
@@ -63,7 +64,7 @@ PUT /gyms/:id
     "location": "Rua D, 101",
     "classes": ["Musculação", "Dança", "Yoga"]
 }
-
+```
 DELETE /gyms/:id
 •	Descrição: Exclui uma academia.
 •	Resposta de Sucesso: ‘204 No Content’
