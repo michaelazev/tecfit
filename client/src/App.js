@@ -136,7 +136,7 @@ function App() {
           <Link to="/favorite" style={{ animationDelay: "0.4s" }}>
             <h6>Favorito</h6>
           </Link>
-          <Link to="/contato" style={{ animationDelay: "0.6s" }}>
+          <Link to="/user" style={{ animationDelay: "0.6s" }}>
             <h6>Usuário</h6>
           </Link>
         </nav>
