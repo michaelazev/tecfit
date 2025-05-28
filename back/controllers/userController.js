@@ -32,13 +32,13 @@ router.get('/:id', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM users WHERE UserId = ?', [itemId]);
 
     if (rows.length === 0) {
-      return res.status(404).json({ message: 'Item não encontrado.' });
+      return res.status(404).json({ message: 'Usuário não encontrado.' });
     }
 
     res.json(rows[0]);
   } catch (err) {
     console.error('Erro ao buscar item:', err);
-    res.status(500).json({ message: 'Erro ao buscar item.' });
+    res.status(500).json({ message: 'Erro ao buscar usuário.' });
   }
 });
 
@@ -51,10 +51,10 @@ router.post('/', async (req, res) => {
       [name, description]
     );
 
-    res.status(201).json({ message: 'Item criado com sucesso!', itemId: result.insertId });
+    res.status(201).json({ message: 'Usuário criado com sucesso!', itemId: result.insertId });
   } catch (err) {
     console.error('Erro ao criar item:', err);
-    res.status(500).json({ message: 'Erro ao criar item.' });
+    res.status(500).json({ message: 'Erro ao criar usuário.' });
   }
 });
 
@@ -69,13 +69,13 @@ router.put('/:id', async (req, res) => {
     );
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({ message: 'Item não encontrado.' });
+      return res.status(404).json({ message: 'Usuário não encontrado.' });
     }
 
-    res.json({ message: 'Item atualizado com sucesso!' });
+    res.json({ message: 'Usuário atualizado com sucesso!' });
   } catch (err) {
     console.error('Erro ao atualizar item:', err);
-    res.status(500).json({ message: 'Erro ao atualizar item.' });
+    res.status(500).json({ message: 'Erro ao atualizar usuário.' });
   }
 });
 
@@ -86,13 +86,13 @@ router.delete('/:id', async (req, res) => {
     const [result] = await pool.query('DELETE FROM users WHERE UserId = ?', [itemId]);
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({ message: 'Item não encontrado.' });
+      return res.status(404).json({ message: 'Usuário não encontrado.' });
     }
 
-    res.json({ message: 'Item deletado com sucesso!' });
+    res.json({ message: 'Usuário deletado com sucesso!' });
   } catch (err) {
     console.error('Erro ao deletar item:', err);
-    res.status(500).json({ message: 'Erro ao deletar item.' });
+    res.status(500).json({ message: 'Erro ao deletar usuário.' });
   }
 });
 

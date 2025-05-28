@@ -1,0 +1,14 @@
+/* Center all forms on the page */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 12px;
+    margin-left: 0;
+    display: block;
+}

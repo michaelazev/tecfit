@@ -21,7 +21,8 @@ Este é um projeto Full Stack para localizar academias, desenvolvido com **React
 - **Descrição**: Retorna todas as academias.
 - **Resposta de Sucesso**: `200 OK`
 - **Exemplo de resposta**:
-```
+
+  ```sh
 [
       {
           "id": 1,
@@ -65,49 +66,33 @@ PUT /gyms/:id
 }
 ```
 DELETE /gyms/:id
-
 •	Descrição: Exclui uma academia.
-
 •	Resposta de Sucesso: ‘204 No Content’
 
 # Como rodar o projeto localmente ٩(ˊᗜˋ*)و 
 
 1.	Clone o repositório
-```
-git clone https://github.com/michaelazev/tecfit.git
-```
-```
-cd tecfit
-```
-3.  Abra o projeto em sua IDE (ex: Visual Studio Code).
-4.	Execute o back-end:
-•	Navegue até a pasta do back-end e execute:
-```
-cd back
-```
-```
-npm install
-```
-```
-npm start
-```
+git clone https://github.com/seu-usuario/localizacao-academias.git
+cd localizacao-academias
 
-6.	Execute o front-end:
-•	Navegue até a pasta do front-end e execute:
-```
-cd client
-```
-```
+2.  Abra o projeto em sua IDE (ex: Visual Studio Code).
+3.	Execute o back-end:
+•	Navegue até a pasta do back-end e execute:
+cd backend
 npm install
-```
-```
 npm start
-```
-8.	Acesse a aplicação:
+
+4.	Execute o front-end:
+•	Navegue até a pasta do front-end e execute:
+cd frontend
+npm install
+npm start
+
+5.	Acesse a aplicação:
 •	O servidor estará rodando em http://localhost:3000.
 
 Testes
 O projeto inclui testes básicos com Jest e Supertest.
 •	Para rodar os testes, execute o comando:
-•	cd back
+•	cd backend
 •	npm test
