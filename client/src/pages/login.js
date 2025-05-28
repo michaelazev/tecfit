@@ -1,34 +1,29 @@
-import "./login.css"; // Importa o arquivo de estilos CSS para a página de login
-import React, { useRef, useEffect, useState } from 'react'; // Importa hooks do React
-import { useNavigate } from 'react-router-dom'; // Importa o hook para navegação entre páginas
+import "./login.css";
+import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    // Referências para manipular elementos DOM
     const cardRef = useRef(null);
     const loginButtonRef = useRef(null);
     const cadastroButtonRef = useRef(null);
 
-    // Hook para navegação
     const navigate = useNavigate();
 
-    // Estados para armazenar os dados do formulário
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [confirmarSenha, setConfirmarSenha] = useState("");
+    const [cadastroErrorMessage, setCadastroErrorMessage] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
-    const [confirmarSenha, setConfirmarSenha] = useState(""); // Estado para a confirmação da senha
-    const [cadastroErrorMessage, setCadastroErrorMessage] = useState(""); // Estado para mensagem de erro no cadastro
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/user");
+        }
+    }, [navigate]);
 
- // Redireciona para /user se já estiver logado
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/user");
-    }
-  }, [navigate]);
-
-
-    // Função para lidar com o envio do formulário de cadastro
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -63,15 +58,13 @@ function Login() {
                 setSenha('');
                 setConfirmarSenha('');
                 setCadastroErrorMessage("");
-                setIsOpen(true); // Exibe a mensagem de sucesso
+                setIsOpen(true);
 
-                // Salva os dados do usuário no localStorage
                 localStorage.setItem('user', JSON.stringify({
                     username: usuario.username,
                     email: usuario.email
                 }));
 
-                // Salva o nome do usuário no localStorage para exibir em /user
                 localStorage.setItem('nome', usuario.username);
 
                 console.log('Cadastro realizado com sucesso:', data);
@@ -81,22 +74,11 @@ function Login() {
             });
     };
 
-    // Função para exibir os dados do usuário no console
-    const handleUser = (event) => {
-        const usuario = {
-            nome: nome,
-            email: email,
-            senha: senha,
-        };
-    };
-
-    // Hook useEffect para manipular classes de elementos DOM
     useEffect(() => {
         const card = cardRef.current;
         const loginButton = loginButtonRef.current;
         const cadastroButton = cadastroButtonRef.current;
 
-        // Alterna entre as classes "loginActive" e "cadastroActive"
         loginButton.onclick = () => {
             card.classList.remove("cadastroActive");
             card.classList.add("loginActive");
@@ -108,12 +90,38 @@ function Login() {
         };
     }, []);
 
-    // Estado para exibir uma mensagem de sucesso
-    const [isOpen, setIsOpen] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(""); // Estado para armazenar a mensagem de erro
-    // Função para lidar com o login
+    // Função para buscar o user_id após login, caso não venha no retorno do login
+    const fetchUserId = (email, token) => {
+    fetch(`https://tecfit-back.vercel.app/api/data/users`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(userData => {
+        let user = userData;
+        // Se vier um array, procura pelo e-mail
+        if (Array.isArray(userData)) {
+            user = userData.find(u => u.Email === email);
+        }
+        if (user && (user.UserId || user._id)) {
+            localStorage.setItem('user_id', user.UserId || user._id);
+        }
+        if (user && (user.Username || user.username)) {
+            localStorage.setItem('nome', user.Username || user.username);
+        }
+        navigate('/user');
+    })
+    .catch(err => {
+        console.error('Erro ao buscar UserId:', err);
+        navigate('/user');
+    });
+};
+
     const handleLogin = (e) => {
-        e.preventDefault(); // Evita o comportamento padrão do formulário
+        e.preventDefault();
         const usuario = {
             email: email,
             password: senha
@@ -138,17 +146,20 @@ function Login() {
                 console.log('Login realizado com sucesso:', data);
                 setErrorMessage("");
 
-                // Salva os dados do usuário e o token no localStorage
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.token);
 
-                // Salva o nome do usuário no localStorage para exibir em /user
-                if (data.user && data.user.username) {
-                    localStorage.setItem('nome', data.user.username);
+                // Salva o id do usuário no localStorage para uso futuro
+                if (data.user && (data.user.UserId || data.user._id)) {
+                    localStorage.setItem('user_id', data.user.UserId || data.user._id);
+                    if (data.user.username) {
+                        localStorage.setItem('nome', data.user.username);
+                    }
+                    navigate('/user');
+                } else {
+                    // Se não vier o id, busca pelo e-mail
+                    fetchUserId(email, data.token);
                 }
-
-                // Redireciona para a página do usuário
-                navigate('/user');
             })
             .catch((error) => {
                 console.error('Erro ao fazer login:', error);
@@ -157,10 +168,7 @@ function Login() {
 
     return (
         <section className="conteinerPai">
-            {/* Card que alterna entre login e cadastro */}
             <div className="card loginActive" ref={cardRef}>
-
-                {/* Seção da esquerda (Login) */}
                 <div className="esquerda">
                     <div className="formLogin">
                         <h2>Fazer Login</h2>
@@ -168,14 +176,14 @@ function Login() {
                             <input
                                 type="email"
                                 placeholder="E-mail"
-                                value={email} // Vincula o valor ao estado 'email'
-                                onChange={(e) => setEmail(e.target.value)} // Atualiza o estado 'email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <input
                                 type="password"
                                 placeholder="Senha"
-                                value={senha} // Vincula o valor ao estado 'senha'
-                                onChange={(e) => setSenha(e.target.value)} // Atualiza o estado 'senha'
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
                             />
                             <button type="submit" onClick={handleLogin}>Entrar</button>
                             {errorMessage && <div className="errorMessage">{errorMessage}</div>}
@@ -187,8 +195,6 @@ function Login() {
                         <button className="loginButton" ref={loginButtonRef}>Faça Login</button>
                     </div>
                 </div>
-
-                {/* Seção da direita (Cadastro) */}
                 <div className="direita">
                     <div className="formCadastro">
                         <h2>Cadastro</h2>
@@ -239,4 +245,4 @@ function Login() {
     );
 }
 
-export default Login; // Exporta o componente Login
+export default Login;
