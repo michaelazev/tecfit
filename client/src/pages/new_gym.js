@@ -85,7 +85,7 @@ function New_gym() {
                 </nav>
             </div>
 
-            {/* Seção "Adicionar Academia" */}
+            {/* Seção "Adicionar Academia" (henrique) */}
             <div className={styles.favoritos}>
                 <h2>Adicionar Academia</h2>
                 <form onSubmit={handleSubmit} className={styles.form}>

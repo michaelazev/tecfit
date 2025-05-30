@@ -5,6 +5,7 @@ const FavoritesContext = createContext();
 export function FavoritesProvider({ children }) {
     const [favorite, setFavorite] = useState([]);
 
+    // Função para adicionar ou remover unidades dos favoritos (Emilio)
 function addFavorite(unit) {
     setFavorite((prev) => {
         const alreadyFavorite = prev.some((fav) => fav.id === unit.id);
@@ -18,6 +19,7 @@ function addFavorite(unit) {
     });
 }
 
+// Contexto que será utilizado para fornecer o estado de favoritos (Emilio)
 return (
     <FavoritesContext.Provider value={{ favorite, addFavorite }}>
         {children}

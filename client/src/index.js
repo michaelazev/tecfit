@@ -11,6 +11,9 @@ import Logout from './pages/logout';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FavoritesProvider } from "./pages/Contextfavo";
 
+//importação do React Router para navegação entre páginas (BrowserRouter, Routes, Route) - Michael, Henrique, Emilio
+//importação do Context API para gerenciar o estado global de favoritos (FavoritesProvider) - Emilio
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

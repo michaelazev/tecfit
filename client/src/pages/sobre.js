@@ -41,7 +41,7 @@ function Sobre() {
       </nav>
     </div>
 
-      {/* Seção "Vamos crescer juntos!" */}
+      {/* Seção "Vamos crescer juntos!" (Michael) */}
     <section class="gym container">
       <div class="gym-1">
         <h2><span>Vamos crescer</span> juntos!</h2>
@@ -54,7 +54,7 @@ function Sobre() {
       </div>
     </section>
       
-      {/* Seção "Nossa Missão" */}
+      {/* Seção "Nossa Missão" (Michael) */}
     <section class="gym container">
       <div class="gym-2">
         <img class="img-4" src="/img/academia.jpg" alt="gym" />
@@ -72,7 +72,7 @@ function Sobre() {
       </div>
     </section>
       
-      {/* Seção "Nossa História" */}
+      {/* Seção "Nossa História" (Michael)*/}
   <section class="gym container">
     <div class="gym-1">
         <h2><span>Nossa</span> Historia </h2>
@@ -95,7 +95,7 @@ function Sobre() {
         </div>
       </section>
     
-      {/* Seção de Benefícios e Vantagens */}
+      {/* Seção de Benefícios e Vantagens (Michael) */}
     <div class="semi">
     <h1>Benefícios & vantagens</h1>
     <hr />
@@ -120,7 +120,7 @@ function Sobre() {
     </div>
 </div>
 
-      {/* Contato */}
+      {/* Contato (Emilio) */}
 <div class="contato">
     <div class="item">
         <img src="/img/WhatsApp .png" alt="WhatsApp" />

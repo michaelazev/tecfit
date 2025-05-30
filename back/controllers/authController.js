@@ -7,7 +7,7 @@ const fs = require('fs');
 const router = express.Router();
 const jwtSecret = 'd7e05170de09b548be953c08f46296af5ada161b7fdaca8ad3c9d25732f4c720';
 
-// Configuração do pool de conexões
+// Configuração do pool de conexões (henrique)
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'tecfitdb.mysql.database.azure.com',
   user: process.env.DB_USER || 'tecfit',
@@ -18,14 +18,14 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-// Rota de registro
+// Rota de registro (henrique)
 router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
     const connection = await pool.getConnection();
 
-    // Verifica se o usuário já existe
+    // Verifica se o usuário já existe (henrique, jamili, joaquim)
     const [rows] = await connection.execute('SELECT * FROM users WHERE Username = ?', [username]);
     if (rows.length > 0) {
       connection.release();
@@ -38,10 +38,10 @@ router.post('/register', async (req, res) => {
       return res.status(409).json({ message: 'Email já existe.' });
     }
 
-    // Criptografa a senha
+    // Criptografa a senha (Maria Luiza)
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insere o novo usuário com o userId
+    // Insere o novo usuário com o userId (Maria Luiza)
     const [result] = await connection.execute(
       'INSERT INTO users (Username, Email, Password) VALUES (?, ?, ?)',
       [username, email, hashedPassword]
@@ -55,14 +55,14 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Rota de login
+// Rota de login (henrique)
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
       const connection = await pool.getConnection();
 
-      // Verifica se o email existe
+      // Verifica se o email existe (henrique, jamili, joaquim)
       const [rows] = await connection.execute('SELECT * FROM users WHERE Email = ?', [email]);
       if (rows.length === 0) {
           connection.release();
@@ -71,7 +71,7 @@ router.post('/login', async (req, res) => {
 
       const user = rows[0];
 
-      // Verifica a senha
+      // Verifica a senha (henrique, jamili, joaquim)
       const isPasswordValid = await bcrypt.compare(password, user.Password);
       if (!isPasswordValid) {
           connection.release();
@@ -80,14 +80,14 @@ router.post('/login', async (req, res) => {
 
       connection.release();
 
-      // Gera o token JWT
+      // Gera o token JWT (henrique, jamili, joaquim)
       const token = jwt.sign(
           { userId: user.Id, username: user.Username, email: user.Email }, // Payload
           jwtSecret, // Chave secreta
           { expiresIn: '1h' } // Tempo de expiração
       );
 
-      // Retorna o token e os dados do usuário
+      // Retorna o token e os dados do usuário (henrique)
       res.status(200).json({
           message: 'Login bem-sucedido!',
           token,

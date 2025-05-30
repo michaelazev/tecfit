@@ -3,24 +3,27 @@ import { useFavoriteContext } from "./Contextfavo";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./favorite.module.css";
 
+// Componente de favoritos (Michael)
 function Favorite() {
     const { favorite, addFavorite } = useFavoriteContext();
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Verifica se o usuário está autenticado (exemplo usando token no localStorage)
+        // Verifica se o usuário está autenticado (exemplo usando token no localStorage) - Henrique
         const token = localStorage.getItem("token");
         if (!token) {
             navigate("/login");
         }
     }, [navigate]);
 
+    // Função para alternar o menu (Michael)
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
         document.body.classList.toggle("open");
     };
 
+    // Lista de unidades favoritas (Emilio)   
     const favoriteUnits = favorite;
 
     return (

@@ -4,7 +4,7 @@ import "./App.css";
 import { useFavoriteContext } from "./pages/Contextfavo";
 import { Link } from "react-router-dom";
 
-export const units = [
+export const units = [ // Lista de academias disponíveis (Michael)
     {
         id: "hi_alecrim",
         name: "HI ACADEMIA",
@@ -66,15 +66,16 @@ export const units = [
     },
 ];
 
-const units1 = units.slice(0, 3);
+const units1 = units.slice(0, 3); // Divisão da lista de academias em duas partes
 const units2 = units.slice(3, 6);
 
-function App() {
+function App() { // Componente principal da aplicação
+
+  // Estado para controlar a abertura/fechamento do menu lateral
   const [menuOpen, setMenuOpen] = useState(false);
   const { favorite, addFavorite } = useFavoriteContext();
   const favoriteUnits = favorite;
 
-  // Função para abrir/fechar menu lateral
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     document.body.classList.toggle("open");
@@ -112,7 +113,7 @@ function App() {
 
   return (
     <div className={`app ${menuOpen ? "open" : ""}`}>
-      {/* Barra de topo com logo e botão de login */}
+      {/* Barra de topo com logo e botão de login (Michael) */} 
       <div className="barra-topo">
         <div className="logo">
           <img src="/img/tec_fit-removebg-preview.png" width="120" alt="Tec Fit Logo" />
@@ -122,12 +123,12 @@ function App() {
         </div>
       </div>
 
-      {/* Botão para abrir/fechar menu lateral */}
+      {/* Botão para abrir/fechar menu lateral (Michael) */}
       <button className="Tec" onClick={toggleMenu}>
         <span className="Tec-icon"></span>
       </button>
 
-      {/* Menu lateral com links */}
+      {/* Menu lateral com links (Michael) */}
       <div className={`menu ${menuOpen ? "active" : ""}`}>
         <nav>
           <Link to="/sobre" style={{ animationDelay: "0.2s" }}>
@@ -142,7 +143,7 @@ function App() {
         </nav>
       </div>
 
-      {/* Cabeçalho com título e imagem */}
+      {/* Cabeçalho com título e imagem (Michael) */}
       <header>
         <div className="section__container header__container" id="home">
           <div className="header__content">
@@ -163,7 +164,7 @@ function App() {
         </div>
       </header>
 
-      {/* Seção "Vamos crescer juntos!" */}
+      {/* Seção "Vamos crescer juntos!" (Michael) */}
       <div className="map-section">
         <div className="map-content">
           <img src="/img/tec_fit-removebg-preview.png" alt="Logo" className="map-logo" />
@@ -175,7 +176,7 @@ function App() {
         </div>
       </div>
 
-      {/* Lista de academias disponíveis */}
+      {/* Lista de academias disponíveis (Michael) */}
       <div className="unit-list">
         <h2 className="title">Redes Proximas</h2>     
         <div className="units">
@@ -209,7 +210,7 @@ function App() {
         </div>
       </div>
 
-      {/* Lista de academias disponíveis 2 */}
+      {/* Lista de academias disponíveis 2 (Michael) */}
       <div className="unit-list">
         <div className="units">
           {units2.map((unit, index) => {

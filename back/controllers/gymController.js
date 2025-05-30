@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql2/promise');
 const router = express.Router();
 
+// Configuração do pool de conexões MySQL
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'tecfitdb.mysql.database.azure.com',
   user: process.env.DB_USER || 'tecfit',
@@ -12,7 +13,7 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-// Rota para obter todas as academias
+// Rota para obter todas as academias (Michael)
 router.get('/', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM gym');
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Rota para obter uma academia por ID
+// Rota para obter uma academia por ID (Henrique)
 router.get('/:id', async (req, res) => {
   const gymId = req.params.id;
   try {
@@ -38,7 +39,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Rota para criar uma nova academia
+// Rota para criar uma nova academia (Henrique)
 router.post('/', async (req, res) => {
   const { name, address, open_time, email_address, phone, user_responsible } = req.body;
   try {
@@ -53,7 +54,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Rota para atualizar uma academia
+// Rota para atualizar uma academia (Henrique)
 router.put('/:id', async (req, res) => {
   const gymId = req.params.id;
   const { name, address, open_time, email_address, phone, user_responsible } = req.body;
@@ -72,7 +73,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Rota para deletar uma academia
+// Rota para deletar uma academia (Henrique)
 router.delete('/:id', async (req, res) => {
   const gymId = req.params.id;
   try {

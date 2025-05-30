@@ -10,7 +10,7 @@ const authenticateToken = require('./middleware/authMiddleware');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Configuração do CORS
+// Configuração do CORS (jamili, michael, henrique)
 app.use(cors({
   origin: ['https://tecfit-nu.vercel.app', 'http://localhost:3000'], // Permite requisições do frontend e do localhost
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -20,7 +20,7 @@ app.use(cors({
 // Middleware para analisar JSON  
 app.use(express.json());
 
-// Conectar ao banco de dados
+// Conectar ao banco de dados (henrique, michael)
 async function connectToDatabase() {
   try {
     await sql.connect(dbConfig);

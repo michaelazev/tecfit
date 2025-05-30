@@ -2,6 +2,7 @@ import "./login.css";
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Componente de Login e Cadastro (Henrique, Michael, jamili)
 function Login() {
     const cardRef = useRef(null);
     const loginButtonRef = useRef(null);
@@ -9,6 +10,7 @@ function Login() {
 
     const navigate = useNavigate();
 
+    // Estados para gerenciar os campos de entrada e mensagens de erro
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -23,7 +25,8 @@ function Login() {
             navigate("/user");
         }
     }, [navigate]);
-
+    
+    // Função para lidar com o envio do formulário de cadastro (Henrique, Jamili)
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -90,7 +93,7 @@ function Login() {
         };
     }, []);
 
-    // Função para buscar o user_id após login, caso não venha no retorno do login
+    // Função para buscar o user_id após login, caso não venha no retorno do login (Henrique, Michael)
     const fetchUserId = (email, token) => {
     fetch(`https://tecfit-back.vercel.app/api/data/users`, {
         method: "GET",
@@ -102,7 +105,7 @@ function Login() {
     .then(res => res.json())
     .then(userData => {
         let user = userData;
-        // Se vier um array, procura pelo e-mail
+        // Se vier um array, procura pelo e-mail (Henrique)
         if (Array.isArray(userData)) {
             user = userData.find(u => u.Email === email);
         }
@@ -127,6 +130,7 @@ function Login() {
             password: senha
         };
 
+        // Verifica se os campos de email e senha estão preenchidos (Henrique)
         fetch("http://localhost:8080/auth/login", {
             method: "POST",
             headers: {
@@ -149,7 +153,7 @@ function Login() {
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.token);
 
-                // Salva o id do usuário no localStorage para uso futuro
+                // Salva o id do usuário no localStorage para uso futuro (Michael)
                 if (data.user && (data.user.UserId || data.user._id)) {
                     localStorage.setItem('user_id', data.user.UserId || data.user._id);
                     if (data.user.username) {
@@ -157,7 +161,7 @@ function Login() {
                     }
                     navigate('/user');
                 } else {
-                    // Se não vier o id, busca pelo e-mail
+                    // Se não vier o id, busca pelo e-mail (Michael)
                     fetchUserId(email, data.token);
                 }
             })
@@ -166,8 +170,9 @@ function Login() {
             });
     };
 
+    // Renderiza o componente de Login e Cadastro (Michael)
     return (
-        <section className="conteinerPai">
+        <section className="conteinerPai"> 
             <div className="card loginActive" ref={cardRef}>
                 <div className="esquerda">
                     <div className="formLogin">
@@ -189,7 +194,7 @@ function Login() {
                             {errorMessage && <div className="errorMessage">{errorMessage}</div>}
                         </form>
                     </div>
-                    <div className="facaLogin">
+                    <div className="facaLogin"> 
                         <h2>Já tem <br />uma conta?</h2>
                         <p>Faça o Login!</p>
                         <button className="loginButton" ref={loginButtonRef}>Faça Login</button>

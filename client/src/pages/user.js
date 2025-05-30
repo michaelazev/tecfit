@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaInstagram, FaLinkedin, FaShareAlt, FaEdit, FaTrash } from "react-icons/fa";
 
-// Popup de edição de academia
+// Popup de edição de academia (Michael)
 function EditGymPopup({ academia, onClose, onSave }) {
     const [form, setForm] = useState({
         name: academia.name || "",
@@ -13,10 +13,12 @@ function EditGymPopup({ academia, onClose, onSave }) {
         phone: academia.phone || ""
     });
 
+    // Função para lidar com as mudanças nos campos do formulário (Michael)
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
+    // Função para enviar o formulário de edição (Henrique)
     const handleSubmit = async (e) => {
     e.preventDefault();
     const userId = localStorage.getItem("user_id"); // Adicionado
@@ -44,6 +46,7 @@ function EditGymPopup({ academia, onClose, onSave }) {
     }
 };
 
+    // Renderiza o popup de edição (henrique)
     return (
         <div className="popup-overlay">
             <div className="popup-content">
@@ -158,6 +161,7 @@ function EditGymPopup({ academia, onClose, onSave }) {
     );
 }
 
+// Página do usuário (Michael)
 function User() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [nome, setNome] = useState("");
@@ -173,6 +177,7 @@ function User() {
         const nomeSalvo = localStorage.getItem("nome");
         if (nomeSalvo) setNome(nomeSalvo);
 
+        // Fetch academias from the API (Henrique)
         fetch("https://tecfit-back.vercel.app/api/data/gym")
             .then((res) => res.json())
             .then((data) => setAcademias(data))
@@ -196,6 +201,7 @@ function User() {
         setAcademias(academias.map(a => a.gym_id === updatedAcademia.gym_id ? updatedAcademia : a));
     };
 
+    // Renderiza a página do usuário (Michael)
     return (
         <div className="app">
             <div className="barra-menu">
@@ -275,8 +281,7 @@ function User() {
                         <FaLinkedin />
                     </div>
                 </div>
-
-                <div className="profile-main">
+                <div className="profile-main"> 
                     <h3>
                         <span className="active">ADICIONE SUA ACADEMIA AQUI</span>
                     </h3>
