@@ -3,7 +3,7 @@ const mysql = require('mysql2/promise'); // Use a versão com suporte a Promises
 
 const router = express.Router();
 
-// Configuração do pool de conexões - (Enrico, henrique)
+// Configuração do pool de conexões - ( henrique)
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'tecfitdb.mysql.database.azure.com',
   user: process.env.DB_USER || 'tecfit',
@@ -14,7 +14,7 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-// Rota para obter todos os itens (contas) - (Enrico, Henrique)
+// Rota para obter todos os itens (contas) - (Henrique)
 router.get('/', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM users');
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Rota para obter um item por ID (Enrico, Henrique)
+// Rota para obter um item por ID (Henrique)
 router.get('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Rota para criar um novo item (a criar) - (Enrico, henrique)
+// Rota para criar um novo item (a criar) - (henrique)
 router.post('/', async (req, res) => {
   const { name, description } = req.body;
   try {
@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Rota para atualizar um item (a criar) (Enrico, henrique)
+// Rota para atualizar um item (a criar) (henrique)
 router.put('/:id', async (req, res) => {
   const itemId = req.params.id;
   const { name, description } = req.body;
@@ -79,7 +79,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Rota para deletar um item (a criar) (Enrico, henrique)
+// Rota para deletar um item (a criar) ( henrique)
 router.delete('/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
