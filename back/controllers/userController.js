@@ -14,7 +14,7 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-// Rota para obter todos os itens (contas) - Enrico, Henrique
+// Rota para obter todos os itens (contas) - (Enrico, Henrique)
 router.get('/', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM users');
